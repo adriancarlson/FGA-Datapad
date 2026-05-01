@@ -1,6 +1,6 @@
 # Font Assets
 
-This project uses a PDF-inspired visual style for Flight Group Alpha tools.
+FGA Datapad uses a PDF-inspired visual style for Flight Group Alpha.
 
 Place licensed font files in `assets/fonts/vendor/` using the filenames listed in
 `font-manifest.json`. The CSS in `fonts.css` already points to those filenames.
@@ -18,7 +18,8 @@ Place licensed font files in `assets/fonts/vendor/` using the filenames listed i
 
 ## Expected Local Font Files
 
-See `font-manifest.json` for the full list. The current expected directory shape:
+See `font-manifest.json` for the full list. The current local development
+directory shape:
 
 ```text
 assets/
@@ -26,17 +27,17 @@ assets/
     fonts.css
     font-manifest.json
     vendor/
-      KimberleyBl-Regular.woff2
-      BankGothicBT-Medium.woff2
-      EurostileLT.woff2
-      EurostileLT-Bold.woff2
-      Calibri.woff2
-      ArialMT.woff2
-      xwing-miniatures.woff2
-      x-wing-ships.woff2
-      Calibri-Italic.woff2
-      AgencyFB-Reg.woff2
-      dPolyBlockDice.woff2
-      ErasITC-Medium.woff2
-      Wingdings-Regular.woff2
+      KimberleyBl-Regular.ttf
+      BankGothic-Light.otf
+      BankGothicBT-Medium.ttf
+      BankGothicBT-Bold.ttf
+      EurostileLTStd-Cn.otf
+      EurostileLTStd-Demi.otf
+      EurostileLTStd-DemiOblique.ttf
+      EurostileLTStd-Bold.otf
+      EurostileLTStd-BoldCn.otf
+      EurostileLTStd-Ex2.otf
+      MyriadPro-Regular.otf
+      xwing-miniatures.ttf
+      xwing-miniatures-ships.ttf
 ```

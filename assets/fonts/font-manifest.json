@@ -1,157 +1,144 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "fontDirectory": "assets/fonts/vendor",
   "notes": [
+    "These files are currently local development assets copied from the project owner's Downloads folder.",
     "PDF font subset prefixes, such as BCDEEE+, are omitted from sourceName values.",
-    "Shared fonts were detected in both the Instruction Manual and Mission Briefings PDFs.",
-    "Instruction-only fonts were detected in the Instruction Manual PDF only.",
-    "Proprietary fonts should only be placed in vendor/ when the project owner has the needed license."
+    "Do not redistribute proprietary font files unless the project owner has redistribution rights.",
+    "If the app is deployed publicly, confirm web/app embedding rights for each proprietary font."
   ],
   "fonts": [
     {
       "fontFamily": "Kimberley Bl",
       "sourceName": "KimberleyBl-Regular",
-      "fileName": "KimberleyBl-Regular.woff2",
+      "fileName": "KimberleyBl-Regular.ttf",
       "weight": 400,
       "style": "normal",
       "detectedIn": ["instructionManual", "missionBriefings"],
       "usage": "Large FLIGHT GROUP ALPHA title/logo-style text",
-      "status": "needsLicensedFile",
-      "openSourceAlternatives": ["Orbitron Black", "Michroma", "Rajdhani Bold"]
+      "status": "localFilePresent"
+    },
+    {
+      "fontFamily": "Bank Gothic BT",
+      "sourceName": "Bank Gothic Light Regular",
+      "fileName": "BankGothic-Light.otf",
+      "weight": 300,
+      "style": "normal",
+      "detectedIn": ["instructionManual", "missionBriefings"],
+      "usage": "Light sci-fi labels and secondary headings",
+      "status": "localFilePresent"
     },
     {
       "fontFamily": "Bank Gothic BT",
       "sourceName": "BankGothicBT-Medium",
-      "fileName": "BankGothicBT-Medium.woff2",
+      "fileName": "BankGothicBT-Medium.ttf",
       "weight": 500,
       "style": "normal",
       "detectedIn": ["instructionManual", "missionBriefings"],
       "usage": "Small sci-fi headings, cover metadata, table/card-style labels",
-      "status": "needsLicensedFile",
-      "openSourceAlternatives": ["Rajdhani Medium", "Rajdhani Bold"]
+      "status": "localFilePresent"
     },
     {
-      "fontFamily": "Eurostile LT",
-      "sourceName": "EurostileLT",
-      "fileName": "EurostileLT.woff2",
+      "fontFamily": "Bank Gothic BT",
+      "sourceName": "BankGothic Bold",
+      "fileName": "BankGothicBT-Bold.ttf",
+      "weight": 700,
+      "style": "normal",
+      "detectedIn": ["instructionManual", "missionBriefings"],
+      "usage": "Bold table/card labels and headings",
+      "status": "localFilePresent"
+    },
+    {
+      "fontFamily": "Eurostile LT Std",
+      "sourceName": "EurostileLTStd-Cn",
+      "fileName": "EurostileLTStd-Cn.otf",
       "weight": 400,
       "style": "normal",
       "detectedIn": ["instructionManual", "missionBriefings"],
-      "usage": "Main body text",
-      "status": "needsLicensedFile",
-      "openSourceAlternatives": ["Saira Condensed Regular", "Rajdhani Regular", "Exo Regular"]
+      "usage": "Main body text and condensed text",
+      "status": "localFilePresent"
     },
     {
-      "fontFamily": "Eurostile LT",
-      "sourceName": "EurostileLT-Bold",
-      "fileName": "EurostileLT-Bold.woff2",
+      "fontFamily": "Eurostile LT Std",
+      "sourceName": "EurostileLTStd-Demi",
+      "fileName": "EurostileLTStd-Demi.otf",
+      "weight": 600,
+      "style": "normal",
+      "detectedIn": ["instructionManual", "missionBriefings"],
+      "usage": "Bold emphasis, formulas, and costs",
+      "status": "localFilePresent"
+    },
+    {
+      "fontFamily": "Eurostile LT Std",
+      "sourceName": "EurostileLTStd-DemiOblique",
+      "fileName": "EurostileLTStd-DemiOblique.ttf",
+      "weight": 600,
+      "style": "oblique",
+      "detectedIn": ["instructionManual"],
+      "usage": "Italic subtitles, examples, and formula lines",
+      "status": "localFilePresent"
+    },
+    {
+      "fontFamily": "Eurostile LT Std",
+      "sourceName": "EurostileLTStd-Bold",
+      "fileName": "EurostileLTStd-Bold.otf",
       "weight": 700,
       "style": "normal",
       "detectedIn": ["instructionManual", "missionBriefings"],
       "usage": "Section headings, bold labels, and emphasis",
-      "status": "needsLicensedFile",
-      "openSourceAlternatives": ["Saira Semi Condensed Bold", "Exo Bold", "Rajdhani Bold"]
+      "status": "localFilePresent"
     },
     {
-      "fontFamily": "Calibri",
-      "sourceName": "Calibri",
-      "fileName": "Calibri.woff2",
-      "weight": 400,
+      "fontFamily": "Eurostile LT Std Condensed",
+      "sourceName": "EurostileLTStd-BoldCn",
+      "fileName": "EurostileLTStd-BoldCn.otf",
+      "weight": 700,
       "style": "normal",
-      "detectedIn": ["instructionManual", "missionBriefings"],
-      "usage": "Some standard text blocks or imported text elements",
-      "status": "systemOrLicensedFile",
-      "openSourceAlternatives": ["Carlito Regular", "Arial", "Noto Sans"]
+      "detectedIn": ["instructionManual"],
+      "usage": "Bold condensed emphasis",
+      "status": "localFilePresent"
     },
     {
-      "fontFamily": "Arial",
-      "sourceName": "ArialMT",
-      "fileName": "ArialMT.woff2",
+      "fontFamily": "Eurostile LT Std Extended",
+      "sourceName": "EurostileLTStd-Ex2",
+      "fileName": "EurostileLTStd-Ex2.otf",
       "weight": 400,
       "style": "normal",
-      "detectedIn": ["instructionManual", "missionBriefings"],
-      "usage": "Some imported or embedded layout elements",
-      "status": "systemOrLicensedFile",
-      "openSourceAlternatives": ["Arimo Regular", "Noto Sans"]
+      "detectedIn": ["instructionManual"],
+      "usage": "Extended Eurostile variant available for display labels",
+      "status": "localFilePresent"
+    },
+    {
+      "fontFamily": "Myriad Pro",
+      "sourceName": "MyriadPro-Regular",
+      "fileName": "MyriadPro-Regular.otf",
+      "weight": 400,
+      "style": "normal",
+      "detectedIn": [],
+      "usage": "Supplemental readable fallback for imported text blocks",
+      "status": "localFilePresent"
     },
     {
       "fontFamily": "XWingMiniatures",
       "sourceName": "xwing-miniatures",
-      "fileName": "xwing-miniatures.woff2",
+      "fileName": "xwing-miniatures.ttf",
       "weight": 400,
       "style": "normal",
       "detectedIn": ["instructionManual", "missionBriefings"],
       "usage": "X-Wing game symbols and icons",
-      "status": "openSourceAvailable",
-      "sourceUrl": "https://github.com/geordanr/xwing-miniatures-font",
-      "openSourceAlternatives": ["xwing-miniatures"]
+      "status": "localFilePresent",
+      "sourceUrl": "https://github.com/geordanr/xwing-miniatures-font"
     },
     {
       "fontFamily": "XWingShip",
-      "sourceName": "X-Wing-Shipsx-wing-ships",
-      "fileName": "x-wing-ships.woff2",
+      "sourceName": "xwing-miniatures-ships",
+      "fileName": "xwing-miniatures-ships.ttf",
       "weight": 400,
       "style": "normal",
       "detectedIn": ["instructionManual", "missionBriefings"],
       "usage": "Ship silhouette/icon font",
-      "status": "openSourceAvailable",
-      "sourceUrl": "https://github.com/geordanr/xwing-miniatures-font",
-      "openSourceAlternatives": ["x-wing-ships"]
-    },
-    {
-      "fontFamily": "Calibri",
-      "sourceName": "Calibri-Italic",
-      "fileName": "Calibri-Italic.woff2",
-      "weight": 400,
-      "style": "italic",
-      "detectedIn": ["instructionManual"],
-      "usage": "Italic text sections",
-      "status": "systemOrLicensedFile",
-      "openSourceAlternatives": ["Carlito Italic", "Noto Sans Italic"]
-    },
-    {
-      "fontFamily": "Agency FB",
-      "sourceName": "AgencyFB-Reg",
-      "fileName": "AgencyFB-Reg.woff2",
-      "weight": 400,
-      "style": "normal",
-      "detectedIn": ["instructionManual"],
-      "usage": "Display/header style text in some components",
-      "status": "systemOrLicensedFile",
-      "openSourceAlternatives": ["Rajdhani Medium", "Saira Condensed Medium"]
-    },
-    {
-      "fontFamily": "dPolyBlockDice",
-      "sourceName": "dPolyBlockDice",
-      "fileName": "dPolyBlockDice.woff2",
-      "weight": 400,
-      "style": "normal",
-      "detectedIn": ["instructionManual"],
-      "usage": "Dice face symbols",
-      "status": "needsLicensedFile",
-      "openSourceAlternatives": ["SVG dice/action icons"]
-    },
-    {
-      "fontFamily": "Eras ITC",
-      "sourceName": "ErasITC-Medium",
-      "fileName": "ErasITC-Medium.woff2",
-      "weight": 500,
-      "style": "normal",
-      "detectedIn": ["instructionManual"],
-      "usage": "Some card/component text",
-      "status": "systemOrLicensedFile",
-      "openSourceAlternatives": ["Exo Medium", "Saira Medium"]
-    },
-    {
-      "fontFamily": "Wingdings",
-      "sourceName": "Wingdings-Regular",
-      "fileName": "Wingdings-Regular.woff2",
-      "weight": 400,
-      "style": "normal",
-      "detectedIn": ["instructionManual"],
-      "usage": "Miscellaneous symbol glyphs",
-      "status": "systemOrLicensedFile",
-      "openSourceAlternatives": ["SVG symbol icons", "Material Symbols"]
+      "status": "localFilePresent",
+      "sourceUrl": "https://github.com/geordanr/xwing-miniatures-font"
     }
   ]
 }

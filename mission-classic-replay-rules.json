@@ -1,0 +1,602 @@
+[
+  {
+    "missionId": "1:1",
+    "missionName": "Patrol Jump Point D-34",
+    "classicFailureRule": {
+      "replayType": "reshuffle",
+      "canReplay": true,
+      "replayTiming": "missionDeck",
+      "maxReplays": null,
+      "rawCardText": "! Reshuffle",
+      "consequences": [],
+      "sourcePdfPage": 104,
+      "missionBriefingPage": 14,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "1:2",
+    "missionName": "Defend Outpost D-34",
+    "classicFailureRule": {
+      "replayType": "advance",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "! + \"Outpost D-34 has Fallen\"; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "advanceToNextMission"],
+      "sourcePdfPage": 104,
+      "missionBriefingPage": 16,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "1:3",
+    "missionName": "Counterattack",
+    "classicFailureRule": {
+      "replayType": "advance",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "! # + \"Outpost D-34 has Fallen\"; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "advanceToNextMission"],
+      "sourcePdfPage": 104,
+      "missionBriefingPage": 18,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "1:4",
+    "missionName": "Outpost D-34 has Fallen",
+    "classicFailureRule": {
+      "replayType": "advance",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "! + \"Destroy the Defenses\"; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "advanceToNextMission"],
+      "sourcePdfPage": 104,
+      "missionBriefingPage": 20,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "1:5",
+    "missionName": "Destroy the Defenses",
+    "classicFailureRule": {
+      "replayType": "replayOnceWithStress",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": 1,
+      "rawCardText": "! Replay mission one time with 1 stress token",
+      "consequences": ["stressTokenOnReplay"],
+      "sourcePdfPage": 104,
+      "missionBriefingPage": 22,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "1:6",
+    "missionName": "Destroy the Lulsla",
+    "classicFailureRule": {
+      "replayType": "tourFailed",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "! Tour of Duty 1 failed; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "tourFailed"],
+      "sourcePdfPage": 104,
+      "missionBriefingPage": 24,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "2:1",
+    "missionName": "Respond to S.O.S",
+    "classicFailureRule": {
+      "replayType": "reshuffle",
+      "canReplay": true,
+      "replayTiming": "missionDeck",
+      "maxReplays": null,
+      "rawCardText": "# Reshuffle",
+      "consequences": [],
+      "sourcePdfPage": 105,
+      "missionBriefingPage": 26,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "2:2",
+    "missionName": "Intercept Attack",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "# Replay Mission; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 105,
+      "missionBriefingPage": 28,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "2:3",
+    "missionName": "Rescue War Refugees",
+    "classicFailureRule": {
+      "replayType": "advance",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "# + \"Capture Enemies\"; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "advanceToNextMission"],
+      "sourcePdfPage": 105,
+      "missionBriefingPage": 30,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "2:4",
+    "missionName": "Capture Enemies",
+    "classicFailureRule": {
+      "replayType": "advance",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "# + \"Guard the Resupply\"; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "advanceToNextMission"],
+      "sourcePdfPage": 105,
+      "missionBriefingPage": 32,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "2:5",
+    "missionName": "Guard the Resupply",
+    "classicFailureRule": {
+      "replayType": "tourFailed",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "# Tour of Duty 2 failed; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "tourFailed"],
+      "sourcePdfPage": 105,
+      "missionBriefingPage": 34,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "3:1",
+    "missionName": "Load Base Equipment",
+    "classicFailureRule": {
+      "replayType": "reshuffle",
+      "canReplay": true,
+      "replayTiming": "missionDeck",
+      "maxReplays": null,
+      "rawCardText": "! Negative Pilot Effects; Reshuffle",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 106,
+      "missionBriefingPage": 36,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "3:2",
+    "missionName": "Destroy Pirate Outpost",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "! Replay Mission; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 106,
+      "missionBriefingPage": 38,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "3:3",
+    "missionName": "Hold Position",
+    "classicFailureRule": {
+      "replayType": "advance",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "! Negative Pilot Effects + \"Guard Space Station NL-1\"",
+      "consequences": ["negativePilotEffects", "advanceToNextMission"],
+      "sourcePdfPage": 106,
+      "missionBriefingPage": 40,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "3:4",
+    "missionName": "Guard Space Station NL-1",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "! Replay Mission; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 106,
+      "missionBriefingPage": 42,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "3:5",
+    "missionName": "Thrawn Inspects NL-1",
+    "classicFailureRule": {
+      "replayType": "reshuffle",
+      "canReplay": true,
+      "replayTiming": "missionDeck",
+      "maxReplays": null,
+      "rawCardText": "! Reshuffle",
+      "consequences": [],
+      "sourcePdfPage": 106,
+      "missionBriefingPage": 44,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "3:6",
+    "missionName": "Wait for Relief Forces",
+    "classicFailureRule": {
+      "replayType": "tourFailed",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "! Tour of Duty 3 failed; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "tourFailed"],
+      "sourcePdfPage": 106,
+      "missionBriefingPage": 46,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "4:1",
+    "missionName": "Escort Convoy",
+    "classicFailureRule": {
+      "replayType": "reshuffle",
+      "canReplay": true,
+      "replayTiming": "missionDeck",
+      "maxReplays": null,
+      "rawCardText": "# Negative Pilot Effects; Reshuffle",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 107,
+      "missionBriefingPage": 48,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "4:2",
+    "missionName": "Attack the Nharwaak",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "# Replay Mission; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 107,
+      "missionBriefingPage": 50,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "4:3",
+    "missionName": "Defend the Tech Center",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "# Replay Mission; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 107,
+      "missionBriefingPage": 52,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "4:4",
+    "missionName": "Diplomatic Meeting",
+    "classicFailureRule": {
+      "replayType": "tourFailed",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "# Tour of Duty 4 failed; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "tourFailed"],
+      "sourcePdfPage": 107,
+      "missionBriefingPage": 54,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "4:5",
+    "missionName": "Rebel Arms Deal",
+    "classicFailureRule": {
+      "replayType": "tourFailed",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "! Tour of Duty 4 failed; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "tourFailed"],
+      "sourcePdfPage": 107,
+      "missionBriefingPage": 56,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "5:1",
+    "missionName": "Mineclearing",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "Harkov's Fleet Victory: Replay Mission",
+      "consequences": [],
+      "sourcePdfPage": 108,
+      "missionBriefingPage": 58,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "5:2",
+    "missionName": "Assault Gunboat Recon",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "Harkov's Fleet Victory: Replay Mission; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 108,
+      "missionBriefingPage": 60,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "5:3",
+    "missionName": "Convoy Attack",
+    "classicFailureRule": {
+      "replayType": "replayOnceWithStress",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": 1,
+      "rawCardText": "Harkov's Fleet/Rebel Victory: Replay mission one time with 1 stress token",
+      "consequences": ["stressTokenOnReplay"],
+      "sourcePdfPage": 108,
+      "missionBriefingPage": 62,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "5:4",
+    "missionName": "Tactical Superiority",
+    "classicFailureRule": {
+      "replayType": "advance",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "Harkov's Fleet Victory: + \"Capture Harkov\"; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "advanceToNextMission"],
+      "sourcePdfPage": 108,
+      "missionBriefingPage": 64,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "5:5",
+    "missionName": "Capture Harkov",
+    "classicFailureRule": {
+      "replayType": "tourFailed",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "Harkov's Fleet/Rebel Victory: Tour of Duty 5 failed; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "tourFailed"],
+      "sourcePdfPage": 108,
+      "missionBriefingPage": 66,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "6:1",
+    "missionName": "Protect Prototypes",
+    "classicFailureRule": {
+      "replayType": "reshuffle",
+      "canReplay": true,
+      "replayTiming": "missionDeck",
+      "maxReplays": null,
+      "rawCardText": "! Negative Pilot Effects; Reshuffle",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 109,
+      "missionBriefingPage": 68,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "6:2",
+    "missionName": "Prevent Rebel Ambush",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "! Replay Mission; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 109,
+      "missionBriefingPage": 70,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "6:3",
+    "missionName": "Convoy Escort",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "! # Replay Mission; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 109,
+      "missionBriefingPage": 72,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "6:4",
+    "missionName": "Punitive Raid",
+    "classicFailureRule": {
+      "replayType": "tourFailed",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "! Tour of Duty 6 failed; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "tourFailed"],
+      "sourcePdfPage": 109,
+      "missionBriefingPage": 74,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "7:1",
+    "missionName": "Trap the Protector",
+    "classicFailureRule": {
+      "replayType": "reshuffle",
+      "canReplay": true,
+      "replayTiming": "missionDeck",
+      "maxReplays": null,
+      "rawCardText": "Rebel/Harkov's Fleet Victory: Reshuffle",
+      "consequences": [],
+      "sourcePdfPage": 110,
+      "missionBriefingPage": 76,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "7:2",
+    "missionName": "Destroy the Akaga",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "Rebel/Harkov's Fleet Victory: Replay Mission; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 110,
+      "missionBriefingPage": 78,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "7:3",
+    "missionName": "Retribution",
+    "classicFailureRule": {
+      "replayType": "replayOnceWithStress",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": 1,
+      "rawCardText": "Zaarin's Splinter Government Victory: Replay mission one time with 1 stress token",
+      "consequences": ["stressTokenOnReplay"],
+      "sourcePdfPage": 110,
+      "missionBriefingPage": 80,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "7:4",
+    "missionName": "TIE Defender",
+    "classicFailureRule": {
+      "replayType": "advance",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "Zaarin's Splinter Government Victory: Negative Pilot Effects + \"Save the Emperor\"",
+      "consequences": ["negativePilotEffects", "advanceToNextMission"],
+      "sourcePdfPage": 110,
+      "missionBriefingPage": 82,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "7:5",
+    "missionName": "Save the Emperor",
+    "classicFailureRule": {
+      "replayType": "tourFailed",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "Zaarin's Splinter Government Victory: Tour of Duty 7 failed",
+      "consequences": ["tourFailed"],
+      "sourcePdfPage": 110,
+      "missionBriefingPage": 84,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "0:1",
+    "missionName": "Escorting the Decimator",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "! Replay Mission",
+      "consequences": [],
+      "sourcePdfPage": 111,
+      "missionBriefingPage": 86,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "0:2",
+    "missionName": "Desert Snow",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "! Replay Mission; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 111,
+      "missionBriefingPage": 88,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "0:3",
+    "missionName": "Attack Run",
+    "classicFailureRule": {
+      "replayType": "discard",
+      "canReplay": false,
+      "replayTiming": "none",
+      "maxReplays": 0,
+      "rawCardText": "! Discard; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects", "discard"],
+      "sourcePdfPage": 111,
+      "missionBriefingPage": 90,
+      "needsReview": false
+    }
+  },
+  {
+    "missionId": "0:4",
+    "missionName": "Shadow of Terror",
+    "classicFailureRule": {
+      "replayType": "replay",
+      "canReplay": true,
+      "replayTiming": "immediate",
+      "maxReplays": null,
+      "rawCardText": "! Replay Mission; Negative Pilot Effects",
+      "consequences": ["negativePilotEffects"],
+      "sourcePdfPage": 111,
+      "missionBriefingPage": 92,
+      "needsReview": false
+    }
+  }
+]
