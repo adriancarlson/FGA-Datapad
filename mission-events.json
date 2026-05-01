@@ -1,0 +1,3638 @@
+{
+  "schemaVersion": 1,
+  "notes": [
+    "roundEvents are reminders for squads that arrive during a numbered round.",
+    "remindAfterRound is the completed round after which the tracker should warn players about the next round.",
+    "specialArrivals are conditional arrivals from the mission table and need mission-specific rules text before they can become automatic reminders.",
+    "Each squad has name, vector, ai, ship, elite, and raw fields.",
+    "The ship field stores objects with the extracted PDF icon code, mapped ship names, and xwing-miniatures-font CSS classes when known.",
+    "The elite field is inferred from the extracted elite marker and should be reviewed.",
+    "Setup squads are intentionally omitted from this file; they belong in mission setup data."
+  ],
+  "missions": [
+    {
+      "missionId": "1:1",
+      "missionName": "Patrol Jump Point D-34",
+      "roundEvents": [],
+      "specialArrivals": [
+        {
+          "name": "Roe (Rebel Z-95)",
+          "vector": "1",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "z",
+              "name": "Z-95-AF4 Headhunter",
+              "commonName": "Z-95 Headhunter",
+              "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Roe (Rebel Z-95) Special 1 Attack zz"
+        },
+        {
+          "name": "Escro (Rebel Z-95)",
+          "vector": "6",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "z",
+              "name": "Z-95-AF4 Headhunter",
+              "commonName": "Z-95 Headhunter",
+              "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Escro (Rebel Z-95) Special 6 Attack z"
+        },
+        {
+          "name": "Ratvin (Rebel Z-95)",
+          "vector": "4",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "z",
+              "name": "Z-95-AF4 Headhunter",
+              "commonName": "Z-95 Headhunter",
+              "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Ratvin (Rebel Z-95) Special 4 Attack z +z +z"
+        },
+        {
+          "name": "Omega One",
+          "vector": "A",
+          "ai": "Player",
+          "ship": [
+            {
+              "code": "l",
+              "name": "Lambda-class T-4a Shuttle",
+              "commonName": "Lambda Shuttle",
+              "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Omega One Special A Player l"
+        },
+        {
+          "name": "YT-2400",
+          "vector": "4",
+          "ai": "Strike",
+          "ship": [
+            {
+              "code": "o",
+              "name": "YT-2400 Light Freighter",
+              "commonName": "YT-2400",
+              "fontClass": "xwing-miniatures-ship-yt2400lightfreighter"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "YT-2400 Special 4 Strike o +** +* +* +*"
+        }
+      ]
+    },
+    {
+      "missionId": "1:2",
+      "missionName": "Defend Outpost D-34",
+      "roundEvents": [
+        {
+          "round": 2,
+          "remindAfterRound": 1,
+          "squads": [
+            {
+              "name": "Derk",
+              "vector": "5",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Derk Round 2 5 Strike xx +x"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Laire (Rebel Z-95)",
+              "vector": "4",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Laire (Rebel Z-95) Round 5 4 Strike zz +z +z"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Blue",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blue Round 8 1D6 Strike xx +x +x"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "1:3",
+      "missionName": "Counterattack",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Red (Scum Y-wing)",
+              "vector": "3",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Red (Scum Y-wing) Round 4 3 Attack yy"
+            },
+            {
+              "name": "Blue (Scum Y-wing)",
+              "vector": "5",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blue (Scum Y-wing) Round 4 5 Attack y +y"
+            },
+            {
+              "name": "Grey (Scum Y-wing)",
+              "vector": "1",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Grey (Scum Y-wing) Round 4 1 Attack y +y"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Xerse",
+              "vector": "3",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "s",
+                  "name": "M3-A Interceptor",
+                  "commonName": "M3-A Interceptor",
+                  "fontClass": "xwing-miniatures-ship-m3ainterceptor"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Xerse Round 7 3 Attack s +s"
+            },
+            {
+              "name": "Dunns",
+              "vector": "6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "s",
+                  "name": "M3-A Interceptor",
+                  "commonName": "M3-A Interceptor",
+                  "fontClass": "xwing-miniatures-ship-m3ainterceptor"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Dunns Round 7 6 Attack s"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "1:4",
+      "missionName": "Outpost D-34 has Fallen",
+      "roundEvents": [
+        {
+          "round": 2,
+          "remindAfterRound": 1,
+          "squads": [
+            {
+              "name": "YT-2400",
+              "vector": "Bay 1",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "o",
+                  "name": "YT-2400 Light Freighter",
+                  "commonName": "YT-2400",
+                  "fontClass": "xwing-miniatures-ship-yt2400lightfreighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "YT-2400 Round 2 Bay 1 Escape o*"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Omega One",
+              "vector": "A",
+              "ai": "Player",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Omega One Round 4 A Player l"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Blue (Rebel Z-95)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blue (Rebel Z-95) Round 5 1D6 Attack z +z +z"
+            }
+          ]
+        },
+        {
+          "round": 6,
+          "remindAfterRound": 5,
+          "squads": [
+            {
+              "name": "Firespray",
+              "vector": "Bay 2",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "f",
+                  "name": "Firespray-class Patrol Craft",
+                  "commonName": "Firespray",
+                  "fontClass": "xwing-miniatures-ship-firesprayclasspatrolcraft"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Firespray Round 6 Bay 2 Escape f*"
+            }
+          ]
+        },
+        {
+          "round": 9,
+          "remindAfterRound": 8,
+          "squads": [
+            {
+              "name": "Gold (Rebel Z-95)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Gold (Rebel Z-95) Round 9 1D6 Attack zz +z"
+            },
+            {
+              "name": "Ginger",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "r",
+                  "name": "Kihraxz Fighter",
+                  "commonName": "Kihraxz Fighter",
+                  "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Ginger Round 9 1D6 Attack rr +r"
+            }
+          ]
+        },
+        {
+          "round": 10,
+          "remindAfterRound": 9,
+          "squads": [
+            {
+              "name": "YT-2400",
+              "vector": "Bay 1",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "o",
+                  "name": "YT-2400 Light Freighter",
+                  "commonName": "YT-2400",
+                  "fontClass": "xwing-miniatures-ship-yt2400lightfreighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "YT-2400 Round 10 Bay 1 Escape o*"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "1:5",
+      "missionName": "Destroy the Defenses",
+      "roundEvents": [
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Red",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Red Round 5 1D6 Attack zz +z +z"
+            },
+            {
+              "name": "Elite B-wing",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Elite B-wing Round 5 1D6 Attack Eb"
+            }
+          ]
+        },
+        {
+          "round": 9,
+          "remindAfterRound": 8,
+          "squads": [
+            {
+              "name": "Modd",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Modd Round 9 1D6 Attack aa +a"
+            },
+            {
+              "name": "Gargon",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Gargon Round 9 1D6 Attack b +b +b"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "1:6",
+      "missionName": "Destroy the Lulsla",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Red",
+              "vector": "5",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Red Round 4 5 Attack xx +x +x"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "2:1",
+      "missionName": "Respond to S.O.S",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Charlie (Scum)",
+              "vector": "4",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Charlie (Scum) Round 4 4 Strike yy"
+            },
+            {
+              "name": "Delphine (Scum)",
+              "vector": "5",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Delphine (Scum) Round 4 5 Strike y +y"
+            },
+            {
+              "name": "Mangonel (Scum)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Mangonel (Scum) Round 4 1D6 Strike y +y"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "2:2",
+      "missionName": "Intercept Attack",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Atawar",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "r",
+                  "name": "Kihraxz Fighter",
+                  "commonName": "Kihraxz Fighter",
+                  "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Atawar Round 4 1D6 Attack rr +r"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Nipasa",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "s",
+                  "name": "M3-A Interceptor",
+                  "commonName": "M3-A Interceptor",
+                  "fontClass": "xwing-miniatures-ship-m3ainterceptor"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Nipasa Round 7 1D6 Attack s +s +s"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "2:3",
+      "missionName": "Rescue War Refugees",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Elite",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "r",
+                  "name": "Kihraxz Fighter",
+                  "commonName": "Kihraxz Fighter",
+                  "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Elite Round 4 1D6 Attack Er"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Degio",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "s",
+                  "name": "M3-A Interceptor",
+                  "commonName": "M3-A Interceptor",
+                  "fontClass": "xwing-miniatures-ship-m3ainterceptor"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Degio Round 7 1D6 Strike s +s +s"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "Typhoon I",
+          "vector": "1D6",
+          "ai": "Strike",
+          "ship": [
+            {
+              "code": "f",
+              "name": "Firespray-class Patrol Craft",
+              "commonName": "Firespray",
+              "fontClass": "xwing-miniatures-ship-firesprayclasspatrolcraft"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Typhoon I Special 1D6 Strike f +** +* +* +*"
+        },
+        {
+          "name": "Typhoon II",
+          "vector": "1D6",
+          "ai": "Strike",
+          "ship": [
+            {
+              "code": "f",
+              "name": "Firespray-class Patrol Craft",
+              "commonName": "Firespray",
+              "fontClass": "xwing-miniatures-ship-firesprayclasspatrolcraft"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Typhoon II Special 1D6 Strike f +** +* +* +*"
+        },
+        {
+          "name": "Typhoon III",
+          "vector": "1D6",
+          "ai": "Strike",
+          "ship": [
+            {
+              "code": "f",
+              "name": "Firespray-class Patrol Craft",
+              "commonName": "Firespray",
+              "fontClass": "xwing-miniatures-ship-firesprayclasspatrolcraft"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Typhoon III Special 1D6 Strike f +** +* +* +*"
+        }
+      ]
+    },
+    {
+      "missionId": "2:4",
+      "missionName": "Capture Enemies",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Adam (Scum)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Adam (Scum) Round 4 1D6 Attack yy"
+            },
+            {
+              "name": "Baker (Scum)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Baker (Scum) Round 4 1D6 Attack y +y"
+            },
+            {
+              "name": "Charlie (Scum)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Charlie (Scum) Round 4 1D6 Attack y +y"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Glaive (Scum)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Glaive (Scum) Round 7 1D6 Attack zz +z"
+            },
+            {
+              "name": "Godendag (Scum)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Godendag (Scum) Round 7 1D6 Attack z +z +z"
+            }
+          ]
+        },
+        {
+          "round": 9,
+          "remindAfterRound": 8,
+          "squads": [
+            {
+              "name": "Arabu (Scum)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Arabu (Scum) Round 9 1D6 Attack yy"
+            },
+            {
+              "name": "Berono (Scum)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Berono (Scum) Round 9 1D6 Attack y +y"
+            },
+            {
+              "name": "Calitana (Scum)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Calitana (Scum) Round 9 1D6 Attack y +y"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "Omega One",
+          "vector": "A",
+          "ai": "Player",
+          "ship": [
+            {
+              "code": "l",
+              "name": "Lambda-class T-4a Shuttle",
+              "commonName": "Lambda Shuttle",
+              "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Omega One Special A Player l"
+        }
+      ]
+    },
+    {
+      "missionId": "2:5",
+      "missionName": "Guard the Resupply",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Tempest AB",
+              "vector": "A",
+              "ai": "Player",
+              "ship": [
+                {
+                  "code": "A",
+                  "name": "TIE Advanced x1",
+                  "commonName": "TIE Advanced x1",
+                  "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Tempest AB Round 4 A Player AA +A"
+            },
+            {
+              "name": "Bordok",
+              "vector": "2",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "r",
+                  "name": "Kihraxz Fighter",
+                  "commonName": "Kihraxz Fighter",
+                  "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Bordok Round 4 2 Strike rr +r"
+            },
+            {
+              "name": "Chubb",
+              "vector": "5",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "r",
+                  "name": "Kihraxz Fighter",
+                  "commonName": "Kihraxz Fighter",
+                  "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Chubb Round 4 5 Strike r +r +r"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Tempest AC",
+              "vector": "A",
+              "ai": "Player",
+              "ship": [
+                {
+                  "code": "A",
+                  "name": "TIE Advanced x1",
+                  "commonName": "TIE Advanced x1",
+                  "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Tempest AC Round 7 A Player AA +A +A"
+            },
+            {
+              "name": "Raven",
+              "vector": "1",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "v",
+                  "name": "StarViper-class Attack Platform",
+                  "commonName": "StarViper",
+                  "fontClass": "xwing-miniatures-ship-starviperclassattackplatform"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Raven Round 7 1 Attack vv +v"
+            },
+            {
+              "name": "Seakyte",
+              "vector": "6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "v",
+                  "name": "StarViper-class Attack Platform",
+                  "commonName": "StarViper",
+                  "fontClass": "xwing-miniatures-ship-starviperclassattackplatform"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Seakyte Round 7 6 Attack v +v +v"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "3:1",
+      "missionName": "Load Base Equipment",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Green (Rebel Z-95)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green (Rebel Z-95) Round 4 1D6 Attack zz +z +z"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Grey (Rebel)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Grey (Rebel) Round 7 1D6 Attack yy +y"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "Scouter",
+          "vector": "1D6",
+          "ai": "Special",
+          "ship": [
+            {
+              "code": "o",
+              "name": "YT-2400 Light Freighter",
+              "commonName": "YT-2400",
+              "fontClass": "xwing-miniatures-ship-yt2400lightfreighter"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Scouter Special 1D6 Special o"
+        }
+      ]
+    },
+    {
+      "missionId": "3:2",
+      "missionName": "Destroy Pirate Outpost",
+      "roundEvents": [
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Green",
+              "vector": "1D6",
+              "ai": "Special",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green Round 5 1D6 Special aa +a +a"
+            }
+          ]
+        },
+        {
+          "round": 9,
+          "remindAfterRound": 8,
+          "squads": [
+            {
+              "name": "Zulu (Scum Y-Wing)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Zulu (Scum Y-Wing) Round 9 1D6 Strike yy +y"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "Tiger",
+          "vector": "A",
+          "ai": "Player",
+          "ship": [
+            {
+              "code": "l",
+              "name": "Lambda-class T-4a Shuttle",
+              "commonName": "Lambda Shuttle",
+              "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Tiger Special A Player l +* +* +*"
+        }
+      ]
+    },
+    {
+      "missionId": "3:3",
+      "missionName": "Hold Position",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Gold",
+              "vector": "3",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Gold Round 4 3 Strike Eb"
+            }
+          ]
+        },
+        {
+          "round": 6,
+          "remindAfterRound": 5,
+          "squads": [
+            {
+              "name": "Huntress",
+              "vector": "4",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "m",
+                  "name": "Modified YT-1300 Light Freighter",
+                  "commonName": "YT-1300",
+                  "fontClass": "xwing-miniatures-ship-modifiedyt1300lightfreighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Huntress Round 6 4 Strike m +* +*"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Green (Rebel Y-wings)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green (Rebel Y-wings) Round 8 1D6 Strike yy +y"
+            },
+            {
+              "name": "Yellow (Rebel Z-95's)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Yellow (Rebel Z-95's) Round 8 1D6 Strike zz +z"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "Scapar",
+          "vector": "Huntress",
+          "ai": "Flee",
+          "ship": [
+            {
+              "code": "h",
+              "name": "HWK-290 Light Freighter",
+              "commonName": "HWK-290",
+              "fontClass": "xwing-miniatures-ship-hwk290lightfreighter"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Scapar Special Huntress Flee h"
+        }
+      ]
+    },
+    {
+      "missionId": "3:4",
+      "missionName": "Guard Space Station NL-1",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Trinity",
+              "vector": "B",
+              "ai": "Special",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Trinity Round 4 B Special l"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Red",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Red Round 5 1D6 Attack Ex"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Tala (Rebel Z-95's)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Tala (Rebel Z-95's) Round 7 1D6 Attack zz +zz"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Shakker",
+              "vector": "B",
+              "ai": "Special",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Shakker Round 8 B Special l"
+            }
+          ]
+        },
+        {
+          "round": 9,
+          "remindAfterRound": 8,
+          "squads": [
+            {
+              "name": "Grey (Rebel Y-wings)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Grey (Rebel Y-wings) Round 9 1D6 Strike yy +y"
+            },
+            {
+              "name": "Yellow",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Yellow Round 9 1D6 Attack aa +a"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "3:5",
+      "missionName": "Thrawn Inspects NL-1",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Green",
+              "vector": "5",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green Round 4 5 Attack aa +a"
+            },
+            {
+              "name": "Red",
+              "vector": "2",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Red Round 4 2 Strike xx +x"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Shakker",
+              "vector": "2",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Shakker Round 8 2 Attack aa +a"
+            },
+            {
+              "name": "Blue",
+              "vector": "1",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "f",
+                  "name": "Firespray-class Patrol Craft",
+                  "commonName": "Firespray",
+                  "fontClass": "xwing-miniatures-ship-firesprayclasspatrolcraft"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blue Round 8 1 Strike f"
+            },
+            {
+              "name": "Yellow",
+              "vector": "6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "f",
+                  "name": "Firespray-class Patrol Craft",
+                  "commonName": "Firespray",
+                  "fontClass": "xwing-miniatures-ship-firesprayclasspatrolcraft"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Yellow Round 8 6 Strike f"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "3:6",
+      "missionName": "Wait for Relief Forces",
+      "roundEvents": [
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Electra",
+              "vector": "1D6",
+              "ai": "Special",
+              "ship": [
+                {
+                  "code": "G",
+                  "name": "VCX-100 Light Freighter",
+                  "commonName": "VCX-100",
+                  "fontClass": "xwing-miniatures-ship-vcx100lightfreighter"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Electra Round 5 1D6 Special EG"
+            },
+            {
+              "name": "Tala (Rebel Z-95's)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Tala (Rebel Z-95's) Round 5 1D6 Attack zz +z"
+            },
+            {
+              "name": "Bandit (Rebel Z-95's)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Bandit (Rebel Z-95's) Round 5 1D6 Attack zz +z"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Gold",
+              "vector": "1D6",
+              "ai": "Special",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Gold Round 8 1D6 Special x +x +x"
+            },
+            {
+              "name": "Grey",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Grey Round 8 1D6 Attack aa +a"
+            },
+            {
+              "name": "Yellow",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Yellow Round 8 1D6 Strike b +b +b"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "4:1",
+      "missionName": "Escort Convoy",
+      "roundEvents": [
+        {
+          "round": 3,
+          "remindAfterRound": 2,
+          "squads": [
+            {
+              "name": "Snog (Scum Y-Wing)",
+              "vector": "2",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Snog (Scum Y-Wing) Round 3 2 Strike y +y +y"
+            },
+            {
+              "name": "Volyk (Scum Y-Wing)",
+              "vector": "5",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Volyk (Scum Y-Wing) Round 3 5 Strike yy +y +y"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Viper",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "f",
+                  "name": "Firespray-class Patrol Craft",
+                  "commonName": "Firespray",
+                  "fontClass": "xwing-miniatures-ship-firesprayclasspatrolcraft"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Viper Round 7 1D6 Attack f +f"
+            },
+            {
+              "name": "Verdo (Scum Y-Wing)",
+              "vector": "1",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Verdo (Scum Y-Wing) Round 7 1 Strike y +y +y"
+            },
+            {
+              "name": "Siax (Scum Y-Wing)",
+              "vector": "6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Siax (Scum Y-Wing) Round 7 6 Strike yy +y"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "4:2",
+      "missionName": "Attack the Nharwaak",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Scarlet",
+              "vector": "B",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "r",
+                  "name": "Kihraxz Fighter",
+                  "commonName": "Kihraxz Fighter",
+                  "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Scarlet Round 4 B Attack rr +r"
+            },
+            {
+              "name": "Azure (Scum Y-wings)",
+              "vector": "C",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Azure (Scum Y-wings) Round 4 C Strike y +y +y +y"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Pamir 1",
+              "vector": "B",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "h",
+                  "name": "HWK-290 Light Freighter",
+                  "commonName": "HWK-290",
+                  "fontClass": "xwing-miniatures-ship-hwk290lightfreighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Pamir 1 Round 5 B Escape h+* +* +* +*"
+            },
+            {
+              "name": "Pamir 2",
+              "vector": "C",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "h",
+                  "name": "HWK-290 Light Freighter",
+                  "commonName": "HWK-290",
+                  "fontClass": "xwing-miniatures-ship-hwk290lightfreighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Pamir 2 Round 5 C Escape h+* +*"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Snog",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "r",
+                  "name": "Kihraxz Fighter",
+                  "commonName": "Kihraxz Fighter",
+                  "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Snog Round 7 1D6 Attack rr +r"
+            },
+            {
+              "name": "Volyk",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Volyk Round 7 1D6 Strike y +y"
+            }
+          ]
+        },
+        {
+          "round": 9,
+          "remindAfterRound": 8,
+          "squads": [
+            {
+              "name": "Verdant",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Verdant Round 9 1D6 Strike y +y"
+            },
+            {
+              "name": "Seax",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Seax Round 9 1D6 Strike y +y"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "4:3",
+      "missionName": "Defend the Tech Center",
+      "roundEvents": [
+        {
+          "round": 3,
+          "remindAfterRound": 2,
+          "squads": [
+            {
+              "name": "Blue (Scum Y-Wing)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blue (Scum Y-Wing) Round 3 1D6 Strike yy"
+            },
+            {
+              "name": "Gold (Scum Y-Wing)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Gold (Scum Y-Wing) Round 3 1D6 Strike y +y"
+            },
+            {
+              "name": "Red (Scum Y-Wing)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Red (Scum Y-Wing) Round 3 1D6 Strike y +y +y"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Zirc",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "r",
+                  "name": "Kihraxz Fighter",
+                  "commonName": "Kihraxz Fighter",
+                  "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Zirc Round 5 1D6 Attack Er"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Baker (Scum Y-Wing)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Baker (Scum Y-Wing) Round 7 1D6 Strike y +y"
+            },
+            {
+              "name": "Yellow (Scum Y-Wing)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Yellow (Scum Y-Wing) Round 7 1D6 Strike y +y"
+            },
+            {
+              "name": "Green (Scum Y-Wing)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green (Scum Y-Wing) Round 7 1D6 Strike yy +y"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "4:4",
+      "missionName": "Diplomatic Meeting",
+      "roundEvents": [
+        {
+          "round": 3,
+          "remindAfterRound": 2,
+          "squads": [
+            {
+              "name": "Gold (Scum Y-Wing)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Gold (Scum Y-Wing) Round 3 1D6 Strike y +y +y"
+            },
+            {
+              "name": "Red (Scum Y-Wing)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Red (Scum Y-Wing) Round 3 1D6 Strike yy +y"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Hunter",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "v",
+                  "name": "StarViper-class Attack Platform",
+                  "commonName": "StarViper",
+                  "fontClass": "xwing-miniatures-ship-starviperclassattackplatform"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Hunter Round 5 1D6 Attack Ev"
+            },
+            {
+              "name": "Blue (Scum Y-Wing)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "r",
+                  "name": "Kihraxz Fighter",
+                  "commonName": "Kihraxz Fighter",
+                  "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blue (Scum Y-Wing) Round 5 1D6 Strike r +r"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "4:5",
+      "missionName": "Rebel Arms Deal",
+      "roundEvents": [
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Blade",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blade Round 5 1D6 Attack bb +b"
+            },
+            {
+              "name": "Gold (Rebel Y-wings)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Gold (Rebel Y-wings) Round 5 1D6 Attack y +y +y"
+            }
+          ]
+        },
+        {
+          "round": 9,
+          "remindAfterRound": 8,
+          "squads": [
+            {
+              "name": "Blue",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blue Round 9 1D6 Attack x +x +x"
+            },
+            {
+              "name": "Grey (Rebel Y-wings)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Grey (Rebel Y-wings) Round 9 1D6 Attack y +y +y"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "5:1",
+      "missionName": "Mineclearing",
+      "roundEvents": [
+        {
+          "round": 3,
+          "remindAfterRound": 2,
+          "squads": [
+            {
+              "name": "H-Alpha",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "A",
+                  "name": "TIE Advanced x1",
+                  "commonName": "TIE Advanced x1",
+                  "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "H-Alpha Round 3 1D6 Attack AA +A +A"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "H-Beta",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "A",
+                  "name": "TIE Advanced x1",
+                  "commonName": "TIE Advanced x1",
+                  "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "H-Beta Round 7 1D6 Attack AA +A"
+            }
+          ]
+        },
+        {
+          "round": 10,
+          "remindAfterRound": 9,
+          "squads": [
+            {
+              "name": "H-Gamma",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "A",
+                  "name": "TIE Advanced x1",
+                  "commonName": "TIE Advanced x1",
+                  "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "H-Gamma Round 10 1D6 Attack AA +A +A"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "H-Decimator",
+          "vector": "1D6",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "d",
+              "name": "VT-49 Decimator",
+              "commonName": "VT-49 Decimator",
+              "fontClass": "xwing-miniatures-ship-vt49decimator"
+            }
+          ],
+          "elite": "Elite",
+          "raw": "H-Decimator Special 1D6 Attack Ed +** +* +* +*"
+        }
+      ]
+    },
+    {
+      "missionId": "5:2",
+      "missionName": "Assault Gunboat Recon",
+      "roundEvents": [],
+      "specialArrivals": [
+        {
+          "name": "H-Alpha (1st, 3rd, etc.)",
+          "vector": "1D6",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "A",
+              "name": "TIE Advanced x1",
+              "commonName": "TIE Advanced x1",
+              "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "H-Alpha(1st, 3rd etc) Special 1D6 Attack AA +A +A"
+        },
+        {
+          "name": "H-Beta (2nd, 4th, etc.)",
+          "vector": "1D6",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "A",
+              "name": "TIE Advanced x1",
+              "commonName": "TIE Advanced x1",
+              "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "H-Beta(2nd, 4th etc) Special 1D6 Attack AA +A"
+        },
+        {
+          "name": "H-Decimator",
+          "vector": "1D6",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "d",
+              "name": "VT-49 Decimator",
+              "commonName": "VT-49 Decimator",
+              "fontClass": "xwing-miniatures-ship-vt49decimator"
+            }
+          ],
+          "elite": "Elite",
+          "raw": "H-Decimator Special 1D6 Attack Ed +** +* +* +*"
+        }
+      ]
+    },
+    {
+      "missionId": "5:3",
+      "missionName": "Convoy Attack",
+      "roundEvents": [
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Sundog",
+              "vector": "Special",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "m",
+                  "name": "Modified YT-1300 Light Freighter",
+                  "commonName": "YT-1300",
+                  "fontClass": "xwing-miniatures-ship-modifiedyt1300lightfreighter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Sundog Round 5 Special Attack m +m +m"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "Morgath",
+          "vector": "Special",
+          "ai": "Special",
+          "ship": null,
+          "elite": "non-elite",
+          "raw": "Morgath Special Special Special"
+        },
+        {
+          "name": "H-Alpha",
+          "vector": "6",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "A",
+              "name": "TIE Advanced x1",
+              "commonName": "TIE Advanced x1",
+              "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "H-Alpha Special 6 Attack AA +A +A"
+        },
+        {
+          "name": "H-Beta",
+          "vector": "6",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "A",
+              "name": "TIE Advanced x1",
+              "commonName": "TIE Advanced x1",
+              "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "H-Beta Special 6 Attack AA +A"
+        },
+        {
+          "name": "H-Decimator",
+          "vector": "1",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "d",
+              "name": "VT-49 Decimator",
+              "commonName": "VT-49 Decimator",
+              "fontClass": "xwing-miniatures-ship-vt49decimator"
+            }
+          ],
+          "elite": "Elite",
+          "raw": "H-Decimator Special 1 Attack Ed +** +* +* +*"
+        }
+      ]
+    },
+    {
+      "missionId": "5:4",
+      "missionName": "Tactical Superiority",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "H-Delta",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "A",
+                  "name": "TIE Advanced x1",
+                  "commonName": "TIE Advanced x1",
+                  "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "H-Delta Round 4 1D6 Attack AA +A"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "H-Eta",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "A",
+                  "name": "TIE Advanced x1",
+                  "commonName": "TIE Advanced x1",
+                  "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "H-Eta Round 7 1D6 Attack EAEA +EA +EA"
+            }
+          ]
+        },
+        {
+          "round": 9,
+          "remindAfterRound": 8,
+          "squads": [
+            {
+              "name": "Shuttle Toten",
+              "vector": "3",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Shuttle Toten Round 9 3 Escape l +* +* +*"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "H-Decimator",
+          "vector": "4",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "d",
+              "name": "VT-49 Decimator",
+              "commonName": "VT-49 Decimator",
+              "fontClass": "xwing-miniatures-ship-vt49decimator"
+            }
+          ],
+          "elite": "Elite",
+          "raw": "H-Decimator Special 4 Attack Ed +** +* +* +*"
+        },
+        {
+          "name": "H-Alpha",
+          "vector": "4",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "I",
+              "name": "TIE/in Interceptor",
+              "commonName": "TIE Interceptor",
+              "fontClass": "xwing-miniatures-ship-tieinterceptor"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "H-Alpha Special 4 Attack II +I +I"
+        }
+      ]
+    },
+    {
+      "missionId": "5:5",
+      "missionName": "Capture Harkov",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Gold",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Gold Round 4 1D6 Attack aa +a +a"
+            },
+            {
+              "name": "Shuttle Toten",
+              "vector": "Bay 2",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Shuttle Toten Round 4 Bay 2 Attack El +* +* +*"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Geddawai",
+              "vector": "Special",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "m",
+                  "name": "Modified YT-1300 Light Freighter",
+                  "commonName": "YT-1300",
+                  "fontClass": "xwing-miniatures-ship-modifiedyt1300lightfreighter"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Geddawai Round 8 Special Escape Em +* +* +*"
+            },
+            {
+              "name": "Blue",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blue Round 8 1D6 Attack b +b +b +b"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "6:1",
+      "missionName": "Protect Prototypes",
+      "roundEvents": [
+        {
+          "round": 2,
+          "remindAfterRound": 1,
+          "squads": [
+            {
+              "name": "Sela 1",
+              "vector": "A",
+              "ai": "Player",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Sela 1 Round 2 A Player l"
+            }
+          ]
+        },
+        {
+          "round": 3,
+          "remindAfterRound": 2,
+          "squads": [
+            {
+              "name": "Gold",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Gold Round 3 1D6 Attack Ea"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Sela 2",
+              "vector": "A",
+              "ai": "Player",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Sela 2 Round 5 A Player l"
+            }
+          ]
+        },
+        {
+          "round": 6,
+          "remindAfterRound": 5,
+          "squads": [
+            {
+              "name": "Green",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green Round 6 1D6 Strike b +b +b"
+            },
+            {
+              "name": "Yellow",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Yellow Round 6 1D6 Attack aa +a +a"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Sela 3",
+              "vector": "A",
+              "ai": "Player",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Sela 3 Round 8 A Player l"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "6:2",
+      "missionName": "Prevent Rebel Ambush",
+      "roundEvents": [
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Green",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green Round 5 1D6 Attack a +a +a +a"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Red",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Red Round 7 1D6 Strike x +x +x"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Yellow",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Yellow Round 8 1D6 Attack bb +b"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "6:3",
+      "missionName": "Convoy Escort",
+      "roundEvents": [
+        {
+          "round": 3,
+          "remindAfterRound": 2,
+          "squads": [
+            {
+              "name": "Omicron 1",
+              "vector": "C",
+              "ai": "Player",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Omicron 1 Round 3 C Player l"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Red",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Red Round 4 1D6 Attack Eb"
+            },
+            {
+              "name": "Green",
+              "vector": "5",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green Round 4 5 Strike b +b"
+            }
+          ]
+        },
+        {
+          "round": 6,
+          "remindAfterRound": 5,
+          "squads": [
+            {
+              "name": "Omicron 2",
+              "vector": "C",
+              "ai": "Player",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Omicron 2 Round 6 C Player l"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Huntress",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Huntress Round 7 1D6 Attack x +x +x +x"
+            },
+            {
+              "name": "Grey",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Grey Round 7 1D6 Strike b +b"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "6:4",
+      "missionName": "Punitive Raid",
+      "roundEvents": [
+        {
+          "round": 2,
+          "remindAfterRound": 1,
+          "squads": [
+            {
+              "name": "Red",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Red Round 2 1D6 Strike x +x +x"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Grey (Rebel Z-95's)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Grey (Rebel Z-95's) Round 5 1D6 Attack zz +z"
+            },
+            {
+              "name": "Elba (Rebel Z-95's)",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Elba (Rebel Z-95's) Round 5 1D6 Attack z +z +z"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Green",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green Round 8 1D6 Strike aa +a"
+            },
+            {
+              "name": "Blue",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blue Round 8 1D6 Strike b +b +b"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "Lucky Day",
+          "vector": "Special",
+          "ai": "Flee",
+          "ship": [
+            {
+              "code": "m",
+              "name": "Modified YT-1300 Light Freighter",
+              "commonName": "YT-1300",
+              "fontClass": "xwing-miniatures-ship-modifiedyt1300lightfreighter"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Lucky Day Special Special Flee m +* +*"
+        },
+        {
+          "name": "Gold (Rebel Y-wings)",
+          "vector": "Special",
+          "ai": "Flee",
+          "ship": [
+            {
+              "code": "y",
+              "name": "BTL-A4 Y-wing",
+              "commonName": "Y-wing",
+              "fontClass": "xwing-miniatures-ship-btla4ywing"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Gold (Rebel Y-wings) Special Special Flee y +y +y"
+        }
+      ]
+    },
+    {
+      "missionId": "7:1",
+      "missionName": "Trap the Protector",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "H-Beta",
+              "vector": "B",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "B",
+                  "name": "TIE/sa Bomber",
+                  "commonName": "TIE Bomber",
+                  "fontClass": "xwing-miniatures-ship-tiesabomber"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "H-Beta Round 4 B Escape BB +B +B"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Elite",
+              "vector": "B",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "B",
+                  "name": "TIE/sa Bomber",
+                  "commonName": "TIE Bomber",
+                  "fontClass": "xwing-miniatures-ship-tiesabomber"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Elite Round 5 B Escape EB"
+            }
+          ]
+        },
+        {
+          "round": 6,
+          "remindAfterRound": 5,
+          "squads": [
+            {
+              "name": "H-Theta",
+              "vector": "B",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "B",
+                  "name": "TIE/sa Bomber",
+                  "commonName": "TIE Bomber",
+                  "fontClass": "xwing-miniatures-ship-tiesabomber"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "H-Theta Round 6 B Escape BB +B +B"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Gold",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Gold Round 8 1D6 Attack xx +x +x"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "7:2",
+      "missionName": "Destroy the Akaga",
+      "roundEvents": [
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Red (Rebel)",
+              "vector": "3",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Red (Rebel) Round 5 3 Attack zz +z +z"
+            },
+            {
+              "name": "Green (Rebel)",
+              "vector": "4",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green (Rebel) Round 5 4 Attack zz +z +z"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "X-wing Elite",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "X-wing Elite Round 7 1D6 Attack Ex Ex"
+            },
+            {
+              "name": "Gold",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Gold Round 7 1D6 Attack x +x"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "7:3",
+      "missionName": "Retribution",
+      "roundEvents": [
+        {
+          "round": 2,
+          "remindAfterRound": 1,
+          "squads": [
+            {
+              "name": "H-Gamma",
+              "vector": "2",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "I",
+                  "name": "TIE/in Interceptor",
+                  "commonName": "TIE Interceptor",
+                  "fontClass": "xwing-miniatures-ship-tieinterceptor"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "H-Gamma Round 2 2 Attack I +I +I +I"
+            }
+          ]
+        },
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Blue",
+              "vector": "4",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "b",
+                  "name": "A/SF-01 B-wing",
+                  "commonName": "B-wing",
+                  "fontClass": "xwing-miniatures-ship-asf01bwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blue Round 4 4 Attack b +b +b +b"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Z-Mu",
+              "vector": "3",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "D",
+                  "name": "TIE/D Defender",
+                  "commonName": "TIE Defender",
+                  "fontClass": "xwing-miniatures-ship-tieddefender"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Z-Mu Round 8 3 Attack ED"
+            },
+            {
+              "name": "Z-Tau",
+              "vector": "6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "D",
+                  "name": "TIE/D Defender",
+                  "commonName": "TIE Defender",
+                  "fontClass": "xwing-miniatures-ship-tieddefender"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Z-Tau Round 8 6 Attack ED"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "7:4",
+      "missionName": "TIE Defender",
+      "roundEvents": [
+        {
+          "round": 6,
+          "remindAfterRound": 5,
+          "squads": [
+            {
+              "name": "Z-Delta",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "A",
+                  "name": "TIE Advanced x1",
+                  "commonName": "TIE Advanced x1",
+                  "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Z-Delta Round 6 1D6 Attack AA +A +A"
+            },
+            {
+              "name": "Z-Eta",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "A",
+                  "name": "TIE Advanced x1",
+                  "commonName": "TIE Advanced x1",
+                  "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Z-Eta Round 6 1D6 Attack AA +A"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "7:5",
+      "missionName": "Save the Emperor",
+      "roundEvents": [
+        {
+          "round": 2,
+          "remindAfterRound": 1,
+          "squads": [
+            {
+              "name": "Z-Beta",
+              "vector": "2",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "A",
+                  "name": "TIE Advanced x1",
+                  "commonName": "TIE Advanced x1",
+                  "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Z-Beta Round 2 2 Attack AA +* +*"
+            },
+            {
+              "name": "Z-Gamma",
+              "vector": "5",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "A",
+                  "name": "TIE Advanced x1",
+                  "commonName": "TIE Advanced x1",
+                  "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Z-Gamma Round 2 5 Attack EA +*"
+            }
+          ]
+        },
+        {
+          "round": 5,
+          "remindAfterRound": 4,
+          "squads": [
+            {
+              "name": "Haven II",
+              "vector": "Special",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Haven II Round 5 Special Escape El +* +* +*"
+            },
+            {
+              "name": "Z-Delta",
+              "vector": "Special",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "D",
+                  "name": "TIE/D Defender",
+                  "commonName": "TIE Defender",
+                  "fontClass": "xwing-miniatures-ship-tieddefender"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Z-Delta Round 5 Special Attack ED +ED"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Haven III",
+              "vector": "Special",
+              "ai": "Escape",
+              "ship": [
+                {
+                  "code": "l",
+                  "name": "Lambda-class T-4a Shuttle",
+                  "commonName": "Lambda Shuttle",
+                  "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Haven III Round 8 Special Escape El +* +* +*"
+            },
+            {
+              "name": "Z-Epsilon",
+              "vector": "Special",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "D",
+                  "name": "TIE/D Defender",
+                  "commonName": "TIE Defender",
+                  "fontClass": "xwing-miniatures-ship-tieddefender"
+                }
+              ],
+              "elite": "Elite",
+              "raw": "Z-Epsilon Round 8 Special Attack ED +ED"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "Z-Eta",
+          "vector": "1D6",
+          "ai": "Strike",
+          "ship": [
+            {
+              "code": "F",
+              "name": "TIE/ln Fighter",
+              "commonName": "TIE Fighter",
+              "fontClass": "xwing-miniatures-ship-tielnfighter"
+            },
+            {
+              "code": "&",
+              "name": "Alpha-class Star Wing",
+              "commonName": "Assault Gunboat",
+              "fontClass": "xwing-miniatures-ship-alphaclassstarwing"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Z-Eta Special 1D6 Strike FF +& +& +&"
+        },
+        {
+          "name": "Z-Zeta",
+          "vector": "1D6",
+          "ai": "Strike",
+          "ship": [
+            {
+              "code": "F",
+              "name": "TIE/ln Fighter",
+              "commonName": "TIE Fighter",
+              "fontClass": "xwing-miniatures-ship-tielnfighter"
+            },
+            {
+              "code": "&",
+              "name": "Alpha-class Star Wing",
+              "commonName": "Assault Gunboat",
+              "fontClass": "xwing-miniatures-ship-alphaclassstarwing"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Z-Zeta Special 1D6 Strike FF +& +& +&"
+        }
+      ]
+    },
+    {
+      "missionId": "0:1",
+      "missionName": "Escorting the Decimator",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Green (Rebel Z-95)",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green (Rebel Z-95) Round 4 1D6 Strike zz +z +z"
+            }
+          ]
+        },
+        {
+          "round": 7,
+          "remindAfterRound": 6,
+          "squads": [
+            {
+              "name": "Grey",
+              "vector": "1D6",
+              "ai": "Strike",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Grey Round 7 1D6 Strike xx +x"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": []
+    },
+    {
+      "missionId": "0:2",
+      "missionName": "Desert Snow",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Boegis (Scum)",
+              "vector": "1D6 each",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "z",
+                  "name": "Z-95-AF4 Headhunter",
+                  "commonName": "Z-95 Headhunter",
+                  "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Boegis (Scum) Round 4 1D6 each Attack z per remaining Sensor Jammer"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Choora (Scum)",
+              "vector": "1D6 each",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "y",
+                  "name": "BTL-A4 Y-wing",
+                  "commonName": "Y-wing",
+                  "fontClass": "xwing-miniatures-ship-btla4ywing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Choora (Scum) Round 8 1D6 each Attack y per remaining Sensor Jammer"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "Oro",
+          "vector": "1D6",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "f",
+              "name": "Firespray-class Patrol Craft",
+              "commonName": "Firespray",
+              "fontClass": "xwing-miniatures-ship-firesprayclasspatrolcraft"
+            }
+          ],
+          "elite": "Elite",
+          "raw": "Oro Special 1D6 Attack Ef"
+        }
+      ]
+    },
+    {
+      "missionId": "0:3",
+      "missionName": "Attack Run",
+      "roundEvents": [
+        {
+          "round": 4,
+          "remindAfterRound": 3,
+          "squads": [
+            {
+              "name": "Green",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "a",
+                  "name": "RZ-1 A-wing",
+                  "commonName": "A-wing",
+                  "fontClass": "xwing-miniatures-ship-rz1awing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Green Round 4 1D6 Attack aa +a +a"
+            }
+          ]
+        },
+        {
+          "round": 8,
+          "remindAfterRound": 7,
+          "squads": [
+            {
+              "name": "Blue",
+              "vector": "1D6",
+              "ai": "Attack",
+              "ship": [
+                {
+                  "code": "x",
+                  "name": "T-65 X-wing",
+                  "commonName": "X-wing",
+                  "fontClass": "xwing-miniatures-ship-t65xwing"
+                }
+              ],
+              "elite": "non-elite",
+              "raw": "Blue Round 8 1D6 Attack xx +x +x"
+            }
+          ]
+        }
+      ],
+      "specialArrivals": [
+        {
+          "name": "Rogue",
+          "vector": "Special",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "a",
+              "name": "RZ-1 A-wing",
+              "commonName": "A-wing",
+              "fontClass": "xwing-miniatures-ship-rz1awing"
+            },
+            {
+              "code": "x",
+              "name": "T-65 X-wing",
+              "commonName": "X-wing",
+              "fontClass": "xwing-miniatures-ship-t65xwing"
+            }
+          ],
+          "elite": "Elite",
+          "raw": "Rogue Special Special Attack Eaa 68Exx"
+        }
+      ]
+    },
+    {
+      "missionId": "0:4",
+      "missionName": "Shadow of Terror",
+      "roundEvents": [],
+      "specialArrivals": [
+        {
+          "name": "Vassal 1",
+          "vector": "A",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "r",
+              "name": "Kihraxz Fighter",
+              "commonName": "Kihraxz Fighter",
+              "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Vassal 1 Special A Attack rr +r"
+        },
+        {
+          "name": "Vassal 2",
+          "vector": "B",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "r",
+              "name": "Kihraxz Fighter",
+              "commonName": "Kihraxz Fighter",
+              "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+            }
+          ],
+          "elite": "non-elite",
+          "raw": "Vassal 2 Special B Attack r +r +r"
+        },
+        {
+          "name": "Skull 1",
+          "vector": "A",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "M",
+              "name": "Fang Fighter",
+              "commonName": "Fang Fighter",
+              "fontClass": "xwing-miniatures-ship-fangfighter"
+            }
+          ],
+          "elite": "Elite",
+          "raw": "Skull 1 Special A Attack EMM"
+        },
+        {
+          "name": "Skull 2",
+          "vector": "B",
+          "ai": "Attack",
+          "ship": [
+            {
+              "code": "M",
+              "name": "Fang Fighter",
+              "commonName": "Fang Fighter",
+              "fontClass": "xwing-miniatures-ship-fangfighter"
+            }
+          ],
+          "elite": "Elite",
+          "raw": "Skull 2 Special B Attack EMM"
+        }
+      ]
+    }
+  ]
+}

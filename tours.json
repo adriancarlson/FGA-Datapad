@@ -1,0 +1,65 @@
+[
+  {
+    "id": "tour-1",
+    "tourNumber": 1,
+    "name": "Aftermath of Hoth",
+    "category": "initial",
+    "categoryName": "Initial Tours",
+    "categoryOrder": 1,
+    "tourOrder": 1
+  },
+  {
+    "id": "tour-2",
+    "tourNumber": 2,
+    "name": "The Sepan Civil War",
+    "category": "initial",
+    "categoryName": "Initial Tours",
+    "categoryOrder": 1,
+    "tourOrder": 2
+  },
+  {
+    "id": "tour-3",
+    "tourNumber": 3,
+    "name": "Battle on the Frontier",
+    "category": "initial",
+    "categoryName": "Initial Tours",
+    "categoryOrder": 1,
+    "tourOrder": 3
+  },
+  {
+    "id": "tour-4",
+    "tourNumber": 4,
+    "name": "Conflict at Mylok IV",
+    "category": "initial",
+    "categoryName": "Initial Tours",
+    "categoryOrder": 1,
+    "tourOrder": 4
+  },
+  {
+    "id": "tour-5",
+    "tourNumber": 5,
+    "name": "The Battle for Honor",
+    "category": "midGame",
+    "categoryName": "Mid-Game Tours",
+    "categoryOrder": 2,
+    "tourOrder": 5
+  },
+  {
+    "id": "tour-6",
+    "tourNumber": 6,
+    "name": "Arms Race",
+    "category": "midGame",
+    "categoryName": "Mid-Game Tours",
+    "categoryOrder": 2,
+    "tourOrder": 6
+  },
+  {
+    "id": "tour-7",
+    "tourNumber": 7,
+    "name": "Treachery at Ottega",
+    "category": "final",
+    "categoryName": "Final Tour",
+    "categoryOrder": 3,
+    "tourOrder": 7
+  }
+]

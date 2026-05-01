@@ -1,0 +1,142 @@
+{
+  "source": {
+    "name": "xwing-miniatures-font",
+    "repository": "https://github.com/geordanr/xwing-miniatures-font",
+    "css": "dist/xwing-miniatures.css",
+    "license": "MIT"
+  },
+  "fontFamily": "XWingShip",
+  "cssBaseClass": "xwing-miniatures-ship",
+  "icons": {
+    "&": {
+      "name": "Alpha-class Star Wing",
+      "commonName": "Assault Gunboat",
+      "fontClass": "xwing-miniatures-ship-alphaclassstarwing"
+    },
+    "`": {
+      "name": "TIE/ag Aggressor",
+      "commonName": "TIE Aggressor",
+      "fontClass": "xwing-miniatures-ship-tieagaggressor"
+    },
+    "A": {
+      "name": "TIE Advanced x1",
+      "commonName": "TIE Advanced x1",
+      "fontClass": "xwing-miniatures-ship-tieadvancedx1"
+    },
+    "B": {
+      "name": "TIE/sa Bomber",
+      "commonName": "TIE Bomber",
+      "fontClass": "xwing-miniatures-ship-tiesabomber"
+    },
+    "D": {
+      "name": "TIE/D Defender",
+      "commonName": "TIE Defender",
+      "fontClass": "xwing-miniatures-ship-tieddefender"
+    },
+    "F": {
+      "name": "TIE/ln Fighter",
+      "commonName": "TIE Fighter",
+      "fontClass": "xwing-miniatures-ship-tielnfighter"
+    },
+    "G": {
+      "name": "VCX-100 Light Freighter",
+      "commonName": "VCX-100",
+      "fontClass": "xwing-miniatures-ship-vcx100lightfreighter"
+    },
+    "I": {
+      "name": "TIE/in Interceptor",
+      "commonName": "TIE Interceptor",
+      "fontClass": "xwing-miniatures-ship-tieinterceptor"
+    },
+    "M": {
+      "name": "Fang Fighter",
+      "commonName": "Fang Fighter",
+      "fontClass": "xwing-miniatures-ship-fangfighter"
+    },
+    "N": {
+      "name": "TIE/ca Punisher",
+      "commonName": "TIE Punisher",
+      "fontClass": "xwing-miniatures-ship-tiecapunisher"
+    },
+    "P": {
+      "name": "TIE/ph Phantom",
+      "commonName": "TIE Phantom",
+      "fontClass": "xwing-miniatures-ship-tiephphantom"
+    },
+    "T": {
+      "name": "TIE/sk Striker",
+      "commonName": "TIE Striker",
+      "fontClass": "xwing-miniatures-ship-tieskstriker"
+    },
+    "a": {
+      "name": "RZ-1 A-wing",
+      "commonName": "A-wing",
+      "fontClass": "xwing-miniatures-ship-rz1awing"
+    },
+    "b": {
+      "name": "A/SF-01 B-wing",
+      "commonName": "B-wing",
+      "fontClass": "xwing-miniatures-ship-asf01bwing"
+    },
+    "d": {
+      "name": "VT-49 Decimator",
+      "commonName": "VT-49 Decimator",
+      "fontClass": "xwing-miniatures-ship-vt49decimator"
+    },
+    "f": {
+      "name": "Firespray-class Patrol Craft",
+      "commonName": "Firespray",
+      "fontClass": "xwing-miniatures-ship-firesprayclasspatrolcraft"
+    },
+    "h": {
+      "name": "HWK-290 Light Freighter",
+      "commonName": "HWK-290",
+      "fontClass": "xwing-miniatures-ship-hwk290lightfreighter"
+    },
+    "l": {
+      "name": "Lambda-class T-4a Shuttle",
+      "commonName": "Lambda Shuttle",
+      "fontClass": "xwing-miniatures-ship-lambdaclasst4ashuttle"
+    },
+    "m": {
+      "name": "Modified YT-1300 Light Freighter",
+      "commonName": "YT-1300",
+      "fontClass": "xwing-miniatures-ship-modifiedyt1300lightfreighter"
+    },
+    "o": {
+      "name": "YT-2400 Light Freighter",
+      "commonName": "YT-2400",
+      "fontClass": "xwing-miniatures-ship-yt2400lightfreighter"
+    },
+    "r": {
+      "name": "Kihraxz Fighter",
+      "commonName": "Kihraxz Fighter",
+      "fontClass": "xwing-miniatures-ship-kihraxzfighter"
+    },
+    "s": {
+      "name": "M3-A Interceptor",
+      "commonName": "M3-A Interceptor",
+      "fontClass": "xwing-miniatures-ship-m3ainterceptor"
+    },
+    "v": {
+      "name": "StarViper-class Attack Platform",
+      "commonName": "StarViper",
+      "fontClass": "xwing-miniatures-ship-starviperclassattackplatform"
+    },
+    "x": {
+      "name": "T-65 X-wing",
+      "commonName": "X-wing",
+      "fontClass": "xwing-miniatures-ship-t65xwing"
+    },
+    "y": {
+      "name": "BTL-A4 Y-wing",
+      "commonName": "Y-wing",
+      "fontClass": "xwing-miniatures-ship-btla4ywing"
+    },
+    "z": {
+      "name": "Z-95-AF4 Headhunter",
+      "commonName": "Z-95 Headhunter",
+      "fontClass": "xwing-miniatures-ship-z95af4headhunter"
+    }
+  }
+}

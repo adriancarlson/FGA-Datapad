@@ -1,0 +1,135 @@
+@font-face {
+  font-family: "Kimberley Bl";
+  src: url("./vendor/KimberleyBl-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bank Gothic BT";
+  src: url("./vendor/BankGothicBT-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Eurostile LT";
+  src: url("./vendor/EurostileLT.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Eurostile LT";
+  src: url("./vendor/EurostileLT-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("./vendor/Calibri.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Calibri";
+  src: url("./vendor/Calibri-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arial";
+  src: url("./vendor/ArialMT.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Agency FB";
+  src: url("./vendor/AgencyFB-Reg.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Eras ITC";
+  src: url("./vendor/ErasITC-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "XWingMiniatures";
+  src: url("./vendor/xwing-miniatures.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "XWingShip";
+  src: url("./vendor/x-wing-ships.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "FGADice";
+  src: url("./vendor/dPolyBlockDice.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "Wingdings";
+  src: url("./vendor/Wingdings-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+:root {
+  --font-fga-display: "Kimberley Bl", "Orbitron", "Michroma", sans-serif;
+  --font-fga-heading: "Bank Gothic BT", "Rajdhani", "Eurostile LT", sans-serif;
+  --font-fga-body: "Eurostile LT", "Saira Condensed", "Rajdhani", Arial, sans-serif;
+  --font-fga-card: "Eurostile LT", "Rajdhani", "Saira", sans-serif;
+  --font-fga-system: "Calibri", "Carlito", "Noto Sans", Arial, sans-serif;
+  --font-fga-icon: "XWingMiniatures";
+  --font-fga-ship-icon: "XWingShip";
+  --font-fga-dice: "FGADice";
+}
+
+.fga-icon {
+  font-family: var(--font-fga-icon);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.fga-ship-icon {
+  font-family: var(--font-fga-ship-icon);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.fga-dice-icon {
+  font-family: var(--font-fga-dice);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+}

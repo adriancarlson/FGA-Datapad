@@ -1,0 +1,110 @@
+[
+  {
+    "id": "1.1",
+    "category": "Dealing damage to enemy ships",
+    "description": "Deal damage to one or more enemy ships, per round",
+    "xp": 1,
+    "per": "pilot per round",
+    "maxPerRound": 1
+  },
+  {
+    "id": "1.2",
+    "category": "Dealing damage to enemy ships",
+    "description": "Deal a face up damage card to an enemy ship",
+    "xp": 1,
+    "per": "face up damage card"
+  },
+  {
+    "id": "1.3",
+    "category": "Dealing damage to enemy ships",
+    "description": "Destroy an enemy emplacement",
+    "xp": 1,
+    "per": "emplacement"
+  },
+  {
+    "id": "1.4",
+    "category": "Dealing damage to enemy ships",
+    "description": "Destroy any enemy ship with a Threat Level",
+    "xp": 2,
+    "per": "threat level"
+  },
+  {
+    "id": "1.5",
+    "category": "Dealing damage to enemy ships",
+    "description": "Destroy an enemy Bulk Freighter",
+    "xp": 4,
+    "per": "bulk freighter",
+    "notes": "Only allowed by mission special rules."
+  },
+  {
+    "id": "2.1",
+    "category": "Reducing opponent's performance",
+    "description": "Assign one or more red or orange tokens, except lock, to an enemy ship, per round",
+    "xp": 1,
+    "per": "pilot per round",
+    "maxPerRound": 1
+  },
+  {
+    "id": "2.2",
+    "category": "Reducing opponent's performance",
+    "description": "Remove a blue or green token from an enemy ship",
+    "xp": 1,
+    "per": "token"
+  },
+  {
+    "id": "3.1",
+    "category": "Taking damage",
+    "description": "Use an ability to suffer 1 damage for another ship in Flight Group Alpha",
+    "xp": 2,
+    "per": "damage suffered"
+  },
+  {
+    "id": "3.2",
+    "category": "Taking damage",
+    "description": "Being dealt a face up damage card from enemy fire, not mines or bombs",
+    "xp": 1,
+    "per": "face up damage card"
+  },
+  {
+    "id": "4.1",
+    "category": "Boosting Flight Group Alpha's performance",
+    "description": "Give another ship in Flight Group Alpha an action",
+    "xp": 1,
+    "per": "action"
+  },
+  {
+    "id": "4.2",
+    "category": "Boosting Flight Group Alpha's performance",
+    "description": "Assign a blue or green token to another ship in Flight Group Alpha",
+    "xp": 1,
+    "per": "token"
+  },
+  {
+    "id": "4.3",
+    "category": "Boosting Flight Group Alpha's performance",
+    "description": "Remove a red or orange token from another ship in Flight Group Alpha",
+    "xp": 1,
+    "per": "token"
+  },
+  {
+    "id": "5.1",
+    "category": "Negative Points",
+    "description": "Assign another ship in Flight Group Alpha a red or orange token, except lock",
+    "xp": -2,
+    "per": "token assignment"
+  },
+  {
+    "id": "5.2",
+    "category": "Negative Points",
+    "description": "Deal damage to another ship in Flight Group Alpha",
+    "xp": -2,
+    "per": "damage dealt"
+  },
+  {
+    "id": "5.3",
+    "category": "Negative Points",
+    "description": "Deal face up damage card to another ship in Flight Group Alpha",
+    "xp": -3,
+    "per": "damage card"
+  }
+]
