@@ -21,6 +21,7 @@ export interface CampaignSummary {
   manager: string;
   players: number;
   activeMission: string;
+  launchedAt: string | null;
   status: Campaign["status"];
   startDate: string;
 }
@@ -102,6 +103,15 @@ class FgaDatapadLocalDatabase extends Dexie {
         campaign.startWithIntroductoryMission ??= false;
       });
     });
+
+    this.version(6).stores({
+      ...versionOneSchema,
+      campaignMissionProgress: "id, [campaignId+missionId], campaignId, missionId, lastOutcome",
+    }).upgrade(async (transaction) => {
+      await transaction.table<Campaign, EntityId>("campaigns").toCollection().modify((campaign) => {
+        campaign.launchedAt ??= null;
+      });
+    });
   }
 }
 
@@ -117,18 +127,35 @@ export async function ensureLocalUser(): Promise<User> {
   const existingUser = await db.users.get(LOCAL_USER_ID);
 
   if (existingUser) {
+    if (existingUser.accountType !== "guest") {
+      const guestPatch: Partial<User> = {
+        accountType: "guest",
+        emailVerifiedAt: null,
+        email: existingUser.email === "local@flight-group-alpha.test" ? "guest@local.fga-datapad.test" : existingUser.email || "guest@local.fga-datapad.test",
+        username: existingUser.username || "guest",
+        firstName: existingUser.firstName || "Guest",
+        lastName: existingUser.lastName || "Commander",
+        displayName: existingUser.displayName === "Local Commander" || existingUser.displayName === "Guest Commander" ? "Guest" : existingUser.displayName,
+        updatedAt: now(),
+      };
+
+      await db.users.update(existingUser.id, guestPatch);
+      return { ...existingUser, ...guestPatch };
+    }
+
     return existingUser;
   }
 
   const timestamp = now();
   const localUser: User = {
     id: LOCAL_USER_ID,
-    email: "local@flight-group-alpha.test",
-    emailVerifiedAt: timestamp,
-    username: "local-commander",
-    firstName: "Local",
-    lastName: "Commander",
-    displayName: "Local Commander",
+    email: "guest@local.fga-datapad.test",
+    emailVerifiedAt: null,
+    accountType: "guest",
+    username: "guest",
+    firstName: "Guest",
+    lastName: "",
+    displayName: "Guest",
     avatarUrl: null,
     status: "active",
     lastLoginAt: timestamp,
@@ -164,6 +191,7 @@ export async function createCampaign(input: {
     startDate: input.startDate,
     createdByUserId: user.id,
     managerParticipantId: participantId,
+    launchedAt: null,
     archivedAt: null,
     createdAt: timestamp,
     updatedAt: timestamp,
@@ -217,9 +245,10 @@ export async function listCampaignSummaries(showArchived: boolean): Promise<Camp
         name: campaign.name,
         mode: campaign.campaignMode,
         structure: campaign.campaignStructure ?? "missionDeck",
-        manager: manager?.displayName ?? "Unknown",
+        manager: "-",
         players: players.length,
-        activeMission: activeSession?.missionId ?? "No active mission",
+        activeMission: activeSession?.missionId ?? "-",
+        launchedAt: campaign.launchedAt ?? null,
         status: campaign.status,
         startDate: campaign.startDate,
       };

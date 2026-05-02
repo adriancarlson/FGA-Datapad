@@ -3,6 +3,7 @@ export type IsoDate = string;
 export type IsoDateTime = string;
 
 export type UserStatus = "active" | "disabled" | "deleted";
+export type UserAccountType = "guest" | "registered";
 export type CampaignStatus = "active" | "archived";
 export type CampaignMode = "classic" | "completionist" | "ironman";
 export type CampaignStructure = "missionDeck" | "chronological";
@@ -20,6 +21,7 @@ export interface User extends Timestamped {
   id: EntityId;
   email: string;
   emailVerifiedAt: IsoDateTime | null;
+  accountType: UserAccountType;
   username: string;
   firstName: string;
   lastName: string;
@@ -40,6 +42,7 @@ export interface Campaign extends Timestamped {
   startDate: IsoDate;
   createdByUserId: EntityId;
   managerParticipantId: EntityId;
+  launchedAt: IsoDateTime | null;
   archivedAt: IsoDateTime | null;
 }
 

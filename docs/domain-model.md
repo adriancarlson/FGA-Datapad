@@ -6,12 +6,14 @@ data model should not block future hosted accounts or campaign sharing.
 
 ## Terminology
 
-- **User**: A real person with an app login.
+- **User**: A real person using the app. A user can begin as a guest and later become a registered account.
 - **Campaign**: One running instance of a Flight Group Alpha campaign.
 - **CampaignParticipant**: A user's participation in a specific campaign.
 - **Participant**: The user-facing label for a CampaignParticipant.
 - **Campaign Manager**: The one participant who administers and runs enemy AI for a campaign.
 - **Player**: One in-game pilot/player record inside a campaign.
+
+Guest mode: a guest user can create campaigns and players immediately, but guest data is local-only until the user creates a registered account.
 
 Important distinction: a user is not the same thing as a player. A user can
 participate in many campaigns, can own multiple players in one campaign, can be

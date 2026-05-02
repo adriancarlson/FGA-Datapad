@@ -1,28 +1,30 @@
 import { type FormEvent, type MouseEvent, useEffect, useState } from "react";
-import { nonTourMissions } from "../data/missions";
-import { orderedTours } from "../data/tours";
-import { getMissionsForTour } from "../data/missions";
-import { campaignModeOptions, getCampaignModeDefinition, getCampaignModeLabel } from "../domain/campaignModes";
+import { campaignModeOptions, getCampaignModeLabel } from "../domain/campaignModes";
 import {
   campaignStructureOptions,
-  getCampaignStructureDefinition,
   getCampaignStructureLabel,
 } from "../domain/campaignStructures";
 import {
-  archiveCampaign,
-  createManualPlayer,
   createCampaign,
-  getCampaignDetail,
-  type CampaignDetail,
+  ensureLocalUser,
   type CampaignSummary,
   listCampaignSummaries,
-  restoreCampaign,
 } from "../storage/localDb";
-import type { CampaignMode, CampaignStructure } from "../domain/types";
+import type { CampaignMode, CampaignStructure, User } from "../domain/types";
 
 const today = new Date().toISOString().slice(0, 10);
 const instructionManualUrl = "/rulebooks/Flight_Group_Alpha_Instruction_Manual_v208_beta_1.pdf";
 const missionBriefingsUrl = "/rulebooks/Flight_Group_Alpha_Mission_Briefings_v208_beta_1.pdf";
+
+function formatDisplayDate(isoDate: string): string {
+  const [year, month, day] = isoDate.split("-").map(Number);
+
+  if (!year || !month || !day) {
+    return isoDate;
+  }
+
+  return new Date(year, month - 1, day).toLocaleDateString();
+}
 
 type SettingHelpKey =
   | "campaignMode"
@@ -191,15 +193,12 @@ export function App() {
   const [startWithIntroductoryMission, setStartWithIntroductoryMission] = useState(true);
   const [startDate, setStartDate] = useState(today);
   const [selectedCampaignId, setSelectedCampaignId] = useState<string | null>(null);
-  const [campaignDetail, setCampaignDetail] = useState<CampaignDetail | null>(null);
-  const [isPlayerFormOpen, setIsPlayerFormOpen] = useState(false);
-  const [playerName, setPlayerName] = useState("");
-  const [playerCallSign, setPlayerCallSign] = useState("");
-  const [statusMessage, setStatusMessage] = useState("Local campaign data ready.");
   const [isBusy, setIsBusy] = useState(false);
   const [activeHelpKey, setActiveHelpKey] = useState<SettingHelpKey | null>(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
 
   useEffect(() => {
+    void ensureLocalUser().then(setCurrentUser);
     void refreshCampaigns(showArchived);
   }, [showArchived]);
 
@@ -218,43 +217,48 @@ export function App() {
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [activeHelpKey]);
 
+
+  const activeHelp = activeHelpKey ? settingHelp[activeHelpKey] : null;
+  const isLoggedInPreview = true;
+  const currentUserName = isLoggedInPreview
+    ? "Adrian"
+    : currentUser?.accountType === "guest"
+      ? "Guest"
+      : currentUser?.displayName ?? currentUser?.username ?? "Commander";
+  const isGuestSession = isLoggedInPreview ? false : currentUser?.accountType !== "registered";
+  const visibleCampaigns = showArchived
+    ? campaigns.filter((campaign) => campaign.status === "archived")
+    : campaigns.filter((campaign) => campaign.status !== "archived");
+
   useEffect(() => {
-    if (!selectedCampaignId) {
-      setCampaignDetail(null);
+    if (!isGuestSession || campaigns.length === 0) {
       return;
     }
 
-    void refreshCampaignDetail(selectedCampaignId);
-  }, [selectedCampaignId]);
+    function warnBeforeUnload(event: BeforeUnloadEvent) {
+      event.preventDefault();
+      event.returnValue = "";
+    }
 
-  const archivedCount = campaigns.filter((campaign) => campaign.status === "archived").length;
-  const activeHelp = activeHelpKey ? settingHelp[activeHelpKey] : null;
+    window.addEventListener("beforeunload", warnBeforeUnload);
+    return () => window.removeEventListener("beforeunload", warnBeforeUnload);
+  }, [campaigns.length, isGuestSession]);
 
   async function refreshCampaigns(includeArchived = showArchived) {
     const summaries = await listCampaignSummaries(includeArchived);
     setCampaigns(summaries);
   }
 
-  async function refreshCampaignDetail(campaignId = selectedCampaignId) {
-    if (!campaignId) {
-      return;
-    }
-
-    const detail = await getCampaignDetail(campaignId);
-    setCampaignDetail(detail);
-  }
 
   async function handleCreateCampaign(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const trimmedName = campaignName.trim();
     if (!trimmedName) {
-      setStatusMessage("Campaign name is required.");
       return;
     }
 
     if (!startDate) {
-      setStatusMessage("Campaign start date is required.");
       return;
     }
 
@@ -277,140 +281,70 @@ export function App() {
       setStartDate(today);
       setIsCreateOpen(false);
       setSelectedCampaignId(campaign.id);
-      setStatusMessage(`Campaign created: ${campaign.name}.`);
-      await refreshCampaigns();
-      await refreshCampaignDetail(campaign.id);
-    } finally {
-      setIsBusy(false);
-    }
-  }
-
-  async function handleArchiveCampaign(campaign: CampaignSummary) {
-    setIsBusy(true);
-    try {
-      await archiveCampaign(campaign.id);
-      setStatusMessage(`Campaign archived: ${campaign.name}.`);
-      if (selectedCampaignId === campaign.id) {
-        setSelectedCampaignId(null);
-        setCampaignDetail(null);
-      }
       await refreshCampaigns();
     } finally {
       setIsBusy(false);
     }
   }
 
-  async function handleRestoreCampaign(campaign: CampaignSummary) {
-    setIsBusy(true);
-    try {
-      await restoreCampaign(campaign.id);
-      setStatusMessage(`Campaign restored: ${campaign.name}.`);
-      await refreshCampaigns(true);
-    } finally {
-      setIsBusy(false);
-    }
-  }
 
   function handleResumeCampaign(campaign: CampaignSummary) {
     setSelectedCampaignId(campaign.id);
-    setStatusMessage(`Campaign loaded: ${campaign.name}.`);
   }
 
-  async function handleCreateManualPlayer(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    if (!selectedCampaignId || !campaignDetail) {
-      setStatusMessage("Select a campaign before creating a player.");
-      return;
-    }
-
-    const trimmedName = playerName.trim();
-    if (!trimmedName) {
-      setStatusMessage("Player name is required.");
-      return;
-    }
-
-    setIsBusy(true);
-    try {
-      const player = await createManualPlayer({
-        campaignId: selectedCampaignId,
-        name: trimmedName,
-        callSign: playerCallSign.trim(),
-      });
-
-      setPlayerName("");
-      setPlayerCallSign("");
-      setIsPlayerFormOpen(false);
-      setStatusMessage(`Manual player created: ${player.name}.`);
-      await refreshCampaigns();
-      await refreshCampaignDetail(selectedCampaignId);
-    } finally {
-      setIsBusy(false);
-    }
-  }
 
   return (
     <main className="app-shell" id="app-shell">
-      <aside className="side-rail" id="side-rail" aria-label="Application navigation">
-        <div className="brand-mark" id="brand-mark">FGA</div>
-        <nav className="nav-stack" id="primary-nav">
-          <a className="nav-link nav-link-active" id="nav-campaigns" href="#campaigns">
-            Campaigns
-          </a>
-          <a className="nav-link" id="nav-missions" href="#missions">
-            Missions
-          </a>
-          <a className="nav-link" id="nav-tracker" href="#tracker">
-            Turn Tracker
-          </a>
-          <a className="nav-link" id="nav-data" href="#data">
-            Data
-          </a>
-        </nav>
-      </aside>
-
       <section className="work-surface" id="work-surface">
-        <header className="command-header" id="command-header">
-          <div>
-            <p className="eyebrow" id="command-header-eyebrow">FGA Datapad</p>
-            <h1 id="page-title">Campaign Hub</h1>
+        <section className="welcome-panel" id="welcome-user-panel" aria-labelledby="welcome-user-title">
+          {isGuestSession && <span className="session-badge" id="guest-session-badge">Guest Session</span>}
+          <div className="welcome-panel-content" id="welcome-user-panel-content">
+            <div className="welcome-main-row" id="welcome-user-main-row">
+              <div id="welcome-user-title-block">
+                <p className="eyebrow" id="welcome-user-eyebrow">Flight Group Alpha Datapad</p>
+                <h1 id="welcome-user-title">Welcome, {currentUserName}</h1>
+              </div>
+              {isGuestSession && (
+                <button
+                  type="button"
+                  className="primary-action"
+                  id="button-create-account"
+                  title="Email account creation will be connected when hosted auth is added."
+                >
+                  Create Account
+                </button>
+              )}
+            </div>
+            {isGuestSession && (
+              <p className="guest-session-note" id="guest-session-note">
+                Guest session data is not saved. Create an account to save permanently.
+              </p>
+            )}
           </div>
-          <div className="header-actions" id="campaign-actions" aria-label="Campaign actions">
-            <button type="button" id="button-join-campaign" disabled={isBusy}>
-              Join Campaign
-            </button>
-            <button
-              type="button"
-              className="primary-action"
-              id="button-create-campaign"
-              disabled={isBusy}
-              onClick={() => setIsCreateOpen((current) => !current)}
-            >
-              Create Campaign
-            </button>
-          </div>
-        </header>
+        </section>
 
         <section className="campaign-panel" id="campaigns">
           <div className="panel-heading" id="campaigns-heading">
             <div>
-              <p className="eyebrow" id="campaigns-eyebrow">Active Operations</p>
-              <h2 id="campaigns-title">Campaigns</h2>
+              <p className="eyebrow" id="campaigns-eyebrow">Campaign Command</p>
+              <h2 id="campaigns-title">Active Operations</h2>
             </div>
-            <label className="toggle-label" id="label-show-archived-campaigns">
-              <input
-                type="checkbox"
-                id="toggle-show-archived-campaigns"
-                checked={showArchived}
-                onChange={(event) => setShowArchived(event.target.checked)}
-              />
-              Show archived
-            </label>
+            <div className="header-actions" id="campaign-actions" aria-label="Campaign actions">
+              <button type="button" id="button-join-campaign" disabled={isBusy}>
+                Join Campaign
+              </button>
+              <button
+                type="button"
+                className="primary-action"
+                id="button-create-campaign"
+                disabled={isBusy}
+                onClick={() => setIsCreateOpen((current) => !current)}
+              >
+                Create Campaign
+              </button>
+            </div>
           </div>
 
-          <p className="status-line" id="campaign-status-message" role="status">
-            {statusMessage}
-          </p>
 
           {isCreateOpen && (
             <form className="create-campaign-form" id="form-create-campaign" onSubmit={handleCreateCampaign}>
@@ -539,7 +473,7 @@ export function App() {
               <span id="campaign-table-column-current-mission" role="columnheader">Current Mission</span>
               <span id="campaign-table-column-action" role="columnheader">Action</span>
             </div>
-            {campaigns.map((campaign) => (
+            {visibleCampaigns.map((campaign) => (
               <div
                 className={[
                   "table-row",
@@ -552,7 +486,7 @@ export function App() {
               >
                 <span id={`campaign-row-${campaign.id}-name`} role="cell">
                   <strong id={`campaign-row-${campaign.id}-title`}>{campaign.name}</strong>
-                  <small id={`campaign-row-${campaign.id}-start-date`}>Started {campaign.startDate}</small>
+                  <small id={`campaign-row-${campaign.id}-start-date`}>Started {formatDisplayDate(campaign.startDate)}</small>
                 </span>
                 <span id={`campaign-row-${campaign.id}-manager`} role="cell">{campaign.manager}</span>
                 <span id={`campaign-row-${campaign.id}-mode`} role="cell">
@@ -571,258 +505,35 @@ export function App() {
                     disabled={isBusy || campaign.status === "archived"}
                     onClick={() => handleResumeCampaign(campaign)}
                   >
-                    Resume
+                    {campaign.launchedAt ? "Resume" : "Launch"}
                   </button>
-                  {campaign.status === "archived" ? (
-                    <button
-                      type="button"
-                      className="compact-action"
-                      id={`button-restore-${campaign.id}`}
-                      disabled={isBusy}
-                      onClick={() => handleRestoreCampaign(campaign)}
-                    >
-                      Restore
-                    </button>
-                  ) : (
-                    <button
-                      type="button"
-                      className="compact-action"
-                      id={`button-archive-${campaign.id}`}
-                      disabled={isBusy}
-                      onClick={() => handleArchiveCampaign(campaign)}
-                    >
-                      Archive
-                    </button>
-                  )}
                 </span>
               </div>
             ))}
-            {campaigns.length === 0 && (
+            {visibleCampaigns.length === 0 && (
               <div className="empty-row" id="campaign-table-empty-row" role="row">
                 <span id="campaign-table-empty-message" role="cell">
-                  No campaigns found. Create one to begin operations.
+                  {showArchived ? "No archived campaigns found." : "No campaigns found. Create one to begin operations."}
                 </span>
               </div>
             )}
           </div>
 
-          <div className="archived-strip" id="archived-campaigns-preview" aria-label="Archived campaigns preview">
-            <span id="archived-campaigns-label">Archived campaigns visible:</span>
-            <strong id="archived-campaigns-count">{archivedCount}</strong>
-          </div>
-        </section>
 
-        <section className="campaign-detail-panel" id="campaign-detail">
-          <div className="panel-heading" id="campaign-detail-heading">
-            <div id="campaign-detail-title-block">
-              <p className="eyebrow" id="campaign-detail-eyebrow">Campaign Roster</p>
-              <h2 id="campaign-detail-title">
-                {campaignDetail ? campaignDetail.campaign.name : "Select a Campaign"}
-              </h2>
-            </div>
-            <div className="header-actions" id="campaign-detail-actions">
-              <button
-                type="button"
-                className="primary-action"
-                id="button-add-manual-player"
-                disabled={isBusy || !campaignDetail || campaignDetail.campaign.status === "archived"}
-                onClick={() => setIsPlayerFormOpen((current) => !current)}
-              >
-                Add Manual Player
-              </button>
-            </div>
-          </div>
-
-          {campaignDetail ? (
-            <>
-              <div className="campaign-detail-grid" id="campaign-detail-grid">
-                <div className="detail-field" id="campaign-detail-manager">
-                  <span id="campaign-detail-manager-label">Campaign Manager</span>
-                  <strong id="campaign-detail-manager-value">{campaignDetail.managerName}</strong>
-                </div>
-                <div className="detail-field" id="campaign-detail-mode">
-                  <span id="campaign-detail-mode-label">Mode</span>
-                  <strong id="campaign-detail-mode-value">
-                    {getCampaignModeLabel(campaignDetail.campaign.campaignMode)}
-                  </strong>
-                </div>
-                <div className="detail-field" id="campaign-detail-replayability">
-                  <span id="campaign-detail-replayability-label">Replayability</span>
-                  <strong id="campaign-detail-replayability-value">
-                    {getCampaignModeDefinition(campaignDetail.campaign.campaignMode).missionReplayability}
-                  </strong>
-                </div>
-                <div className="detail-field" id="campaign-detail-structure">
-                  <span id="campaign-detail-structure-label">Structure</span>
-                  <strong id="campaign-detail-structure-value">
-                    {getCampaignStructureLabel(campaignDetail.campaign.campaignStructure)}
-                  </strong>
-                </div>
-                <div className="detail-field detail-field-wide" id="campaign-detail-structure-summary">
-                  <span id="campaign-detail-structure-summary-label">Mission Selection</span>
-                  <strong id="campaign-detail-structure-summary-value">
-                    {getCampaignStructureDefinition(campaignDetail.campaign.campaignStructure).summary}
-                  </strong>
-                </div>
-                {campaignDetail.campaign.campaignStructure === "missionDeck" && (
-                  <div className="detail-field" id="campaign-detail-non-tour-missions">
-                    <span id="campaign-detail-non-tour-missions-label">Non-Tour Missions</span>
-                    <strong id="campaign-detail-non-tour-missions-value">
-                      {campaignDetail.campaign.includeNonTourMissions ? "Included" : "Excluded"}
-                    </strong>
-                  </div>
-                )}
-                <div className="detail-field" id="campaign-detail-introductory-mission">
-                  <span id="campaign-detail-introductory-mission-label">Introductory Mission</span>
-                  <strong id="campaign-detail-introductory-mission-value">
-                    {campaignDetail.campaign.startWithIntroductoryMission ? "Starts with 0:1" : "Skipped"}
-                  </strong>
-                </div>
-                <div className="detail-field" id="campaign-detail-failed-xp">
-                  <span id="campaign-detail-failed-xp-label">Failed Mission XP</span>
-                  <strong id="campaign-detail-failed-xp-value">
-                    {getCampaignModeDefinition(campaignDetail.campaign.campaignMode).awardsXpForFailedMission
-                      ? "Allowed"
-                      : "Not awarded"}
-                  </strong>
-                </div>
-                <div className="detail-field" id="campaign-detail-start-date">
-                  <span id="campaign-detail-start-date-label">Start Date</span>
-                  <strong id="campaign-detail-start-date-value">{campaignDetail.campaign.startDate}</strong>
-                </div>
-                <div className="detail-field" id="campaign-detail-status">
-                  <span id="campaign-detail-status-label">Status</span>
-                  <strong id="campaign-detail-status-value">{campaignDetail.campaign.status}</strong>
-                </div>
-                <div className="detail-field" id="campaign-detail-participants">
-                  <span id="campaign-detail-participants-label">Participants</span>
-                  <strong id="campaign-detail-participants-value">
-                    {campaignDetail.participants.filter((participant) => participant.status === "active").length}
-                  </strong>
-                </div>
-                <div className="detail-field" id="campaign-detail-players">
-                  <span id="campaign-detail-players-label">Players</span>
-                  <strong id="campaign-detail-players-value">{campaignDetail.players.length}</strong>
-                </div>
-              </div>
-
-              {isPlayerFormOpen && (
-                <form className="player-form" id="form-create-manual-player" onSubmit={handleCreateManualPlayer}>
-                  <label id="label-player-name">
-                    Player name
-                    <input
-                      id="input-player-name"
-                      value={playerName}
-                      onChange={(event) => setPlayerName(event.target.value)}
-                      placeholder="Pilot name"
-                    />
-                  </label>
-                  <label id="label-player-call-sign">
-                    Call sign
-                    <input
-                      id="input-player-call-sign"
-                      value={playerCallSign}
-                      onChange={(event) => setPlayerCallSign(event.target.value)}
-                      placeholder="Red Two"
-                    />
-                  </label>
-                  <div className="form-actions" id="create-manual-player-form-actions">
-                    <button
-                      type="button"
-                      id="button-cancel-create-manual-player"
-                      disabled={isBusy}
-                      onClick={() => setIsPlayerFormOpen(false)}
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      className="primary-action"
-                      id="button-submit-create-manual-player"
-                      disabled={isBusy}
-                    >
-                      Save Player
-                    </button>
-                  </div>
-                </form>
-              )}
-
-              <div className="player-table" id="player-table" role="table" aria-label="Campaign players">
-                <div className="player-row player-table-head" id="player-table-header" role="row">
-                  <span id="player-table-column-player" role="columnheader">Player</span>
-                  <span id="player-table-column-owner" role="columnheader">Owner</span>
-                  <span id="player-table-column-xp" role="columnheader">Banked XP</span>
-                  <span id="player-table-column-um" role="columnheader">U&amp;M</span>
-                  <span id="player-table-column-cpp" role="columnheader">CCP</span>
-                  <span id="player-table-column-kills" role="columnheader">Kills</span>
-                  <span id="player-table-column-status" role="columnheader">Status</span>
-                </div>
-                {campaignDetail.players.map((player) => (
-                  <div className="player-row" id={`player-row-${player.id}`} role="row" key={player.id}>
-                    <span id={`player-row-${player.id}-name`} role="cell">
-                      <strong id={`player-row-${player.id}-title`}>{player.name}</strong>
-                      <small id={`player-row-${player.id}-call-sign`}>
-                        Call sign: {player.callSign || "None"}
-                      </small>
-                    </span>
-                    <span id={`player-row-${player.id}-owner`} role="cell">
-                      {player.owner}
-                      {player.isManual && (
-                        <small id={`player-row-${player.id}-manual-label`}>Manual player</small>
-                      )}
-                    </span>
-                    <span id={`player-row-${player.id}-banked-xp`} role="cell">{player.stats.bankedXp}</span>
-                    <span id={`player-row-${player.id}-banked-um`} role="cell">{player.stats.bankedUmPoints}</span>
-                    <span id={`player-row-${player.id}-banked-cpp`} role="cell">{player.stats.bankedCpp}</span>
-                    <span id={`player-row-${player.id}-enemy-kills`} role="cell">{player.stats.enemyKills}</span>
-                    <span id={`player-row-${player.id}-status`} role="cell">{player.status}</span>
-                  </div>
-                ))}
-                {campaignDetail.players.length === 0 && (
-                  <div className="empty-row" id="player-table-empty-row" role="row">
-                    <span id="player-table-empty-message" role="cell">
-                      No players assigned. Add a manual player to start building the roster.
-                    </span>
-                  </div>
-                )}
-              </div>
-            </>
-          ) : (
-            <div className="empty-row" id="campaign-detail-empty-state">
-              <span id="campaign-detail-empty-message">
-                Create or resume a campaign to manage its players.
+          <div className="archived-strip" id="archived-campaigns-preview" aria-label="Campaign archive view toggle">
+            <label className="archive-view-toggle" id="archived-campaigns-label">
+              <span id="archived-campaigns-label-text">{showArchived ? "View Active" : "View Archived"}</span>
+              <input
+                className="archive-view-toggle-input"
+                type="checkbox"
+                id="toggle-show-archived-campaigns"
+                checked={showArchived}
+                onChange={(event) => setShowArchived(event.target.checked)}
+              />
+              <span className="archive-view-toggle-track" id="archived-campaigns-toggle-track" aria-hidden="true">
+                <span className="archive-view-toggle-thumb" id="archived-campaigns-toggle-thumb" />
               </span>
-            </div>
-          )}
-        </section>
-
-        <section className="mission-index" id="missions">
-          <div className="panel-heading" id="missions-heading">
-            <div>
-              <p className="eyebrow" id="missions-eyebrow">Mission Deck</p>
-              <h2 id="missions-title">Tour Index</h2>
-            </div>
-          </div>
-
-          <div className="tour-list" id="tour-list">
-            {orderedTours.map((tour) => (
-              <article className="tour-row" id={`tour-row-${tour.id}`} key={tour.id}>
-                <div className="tour-code" id={`tour-row-${tour.id}-code`}>TOD {tour.tourNumber}</div>
-                <div>
-                  <h3 id={`tour-row-${tour.id}-name`}>{tour.name}</h3>
-                  <p id={`tour-row-${tour.id}-summary`}>
-                    {tour.categoryName} · {getMissionsForTour(tour.id).length} missions
-                  </p>
-                </div>
-              </article>
-            ))}
-            <article className="tour-row" id="tour-row-non-tour">
-              <div className="tour-code" id="tour-row-non-tour-code">NT</div>
-              <div>
-                <h3 id="tour-row-non-tour-name">Non-Tour Missions</h3>
-                <p id="tour-row-non-tour-summary">{nonTourMissions.length} standalone missions</p>
-              </div>
-            </article>
+            </label>
           </div>
         </section>
       </section>

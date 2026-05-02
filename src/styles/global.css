@@ -83,7 +83,7 @@ input[type="checkbox"] {
 .app-shell {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 220px 1fr;
+  grid-template-columns: 1fr;
   background:
     linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
@@ -91,66 +91,68 @@ input[type="checkbox"] {
   background-size: 28px 28px;
 }
 
-.side-rail {
-  border-right: 2px solid var(--color-line);
-  background: rgba(20, 22, 26, 0.9);
-  padding: 22px 18px;
-}
 
-.brand-mark {
-  font-family: var(--font-fga-display);
-  min-height: 58px;
-  display: grid;
-  place-items: center;
-  border: 2px solid var(--color-line);
-  color: var(--color-amber);
-  font-size: 28px;
-}
-
-.nav-stack {
-  display: grid;
-  gap: 8px;
-  margin-top: 28px;
-}
-
-.nav-link {
-  color: var(--color-muted);
-  text-decoration: none;
-  text-transform: uppercase;
-  padding: 10px 12px;
-  border-left: 4px solid transparent;
-}
-
-.nav-link-active,
-.nav-link:hover {
-  color: var(--color-text);
-  border-left-color: var(--color-red);
-  background: rgba(255, 255, 255, 0.07);
-}
 
 .work-surface {
+  width: min(1180px, 100%);
+  margin: 0 auto;
   padding: 28px;
   display: grid;
   gap: 22px;
   align-content: start;
 }
 
-.command-header,
-.campaign-panel,
-.campaign-detail-panel,
-.mission-index {
+.welcome-panel,
+.campaign-panel {
   background: rgba(32, 35, 39, 0.95);
   border: 1px solid var(--color-line);
   box-shadow: var(--shadow-panel);
 }
 
-.command-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+.welcome-panel {
+  position: relative;
   padding: 24px;
   border-top: 6px solid var(--color-red);
+}
+
+.welcome-panel-content {
+  display: grid;
+  gap: 12px;
+}
+
+.welcome-main-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  padding-right: 0;
+}
+
+.welcome-main-row .primary-action {
+  justify-self: end;
+}
+
+.guest-session-note {
+  margin: 0;
+  color: rgba(185, 195, 205, 0.78);
+  font-size: 13px;
+}
+
+.session-badge {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 18px;
+  padding: 1px 8px 0;
+  color: #c8e2f7;
+  background: rgba(60, 111, 159, 0.16);
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-family: var(--font-fga-heading);
+  font-size: 11px;
+  line-height: 1;
 }
 
 .header-actions {
@@ -198,9 +200,7 @@ h3 {
   font-size: 17px;
 }
 
-.campaign-panel,
-.campaign-detail-panel,
-.mission-index {
+.campaign-panel {
   padding: 20px;
 }
 
@@ -209,7 +209,13 @@ h3 {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
+}
+
+.panel-tools {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
 }
 
 .toggle-label {
@@ -218,14 +224,6 @@ h3 {
   gap: 8px;
   color: var(--color-muted);
   text-transform: uppercase;
-}
-
-.status-line {
-  border: 1px solid var(--color-line-soft);
-  background: rgba(21, 23, 25, 0.76);
-  color: var(--color-muted);
-  margin-bottom: 16px;
-  padding: 10px 12px;
 }
 
 .create-campaign-form {
@@ -369,130 +367,66 @@ h3 {
   border-top: 1px solid var(--color-line-soft);
 }
 
-.campaign-detail-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(120px, 1fr));
-  gap: 10px;
-  margin-bottom: 16px;
-}
 
-.detail-field {
-  min-height: 72px;
-  display: grid;
-  align-content: center;
-  gap: 6px;
-  border: 1px solid var(--color-line-soft);
-  background: rgba(21, 23, 25, 0.76);
-  padding: 10px 12px;
-}
-
-.detail-field span {
-  color: var(--color-amber);
-  font-family: var(--font-fga-heading);
-  font-size: 12px;
-  text-transform: uppercase;
-}
-
-.detail-field strong {
-  color: var(--color-text);
-  font-size: 16px;
-  text-transform: capitalize;
-}
-
-.detail-field-wide {
-  grid-column: span 2;
-}
-
-.player-form {
-  display: grid;
-  grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) auto;
-  gap: 12px;
-  align-items: end;
-  border: 1px solid var(--color-line-soft);
-  border-left: 5px solid var(--color-red);
-  background: rgba(21, 23, 25, 0.82);
-  margin-bottom: 18px;
-  padding: 14px;
-}
-
-.player-form label {
-  display: grid;
-  gap: 6px;
-  color: var(--color-amber);
-  text-transform: uppercase;
-  font-family: var(--font-fga-heading);
-  font-size: 12px;
-}
-
-.player-table {
-  border: 1px solid var(--color-line-soft);
-}
-
-.player-row {
-  display: grid;
-  grid-template-columns: 1.4fr 1.25fr 0.65fr 0.65fr 0.65fr 0.65fr 0.75fr;
-  gap: 12px;
-  align-items: center;
-  min-height: 54px;
-  padding: 10px 14px;
-  border-top: 1px solid var(--color-line-soft);
-}
-
-.player-row:first-child {
-  border-top: 0;
-}
-
-.player-table-head {
-  min-height: 38px;
-  background: rgba(177, 43, 47, 0.2);
-  color: var(--color-amber);
-  text-transform: uppercase;
-  font-family: var(--font-fga-heading);
-}
-
-.player-row small {
-  display: block;
-  color: var(--color-muted);
-}
 
 .archived-strip {
-  margin-top: 14px;
+  margin-top: 12px;
   display: flex;
   justify-content: flex-end;
-  gap: 10px;
-  color: var(--color-muted);
+  color: rgba(185, 195, 205, 0.72);
 }
 
-.tour-list {
-  display: grid;
-  gap: 10px;
-}
-
-.tour-row {
-  display: grid;
-  grid-template-columns: 86px 1fr;
-  gap: 14px;
+.archive-view-toggle {
+  display: inline-flex;
   align-items: center;
-  border: 1px solid var(--color-line-soft);
-  background: rgba(21, 23, 25, 0.72);
-  padding: 12px;
-}
-
-.tour-code {
-  min-height: 42px;
-  display: grid;
-  place-items: center;
-  background: var(--color-panel-strong);
-  border: 1px solid var(--color-line);
-  color: var(--color-amber);
+  justify-content: flex-end;
+  gap: 8px;
+  text-transform: uppercase;
   font-family: var(--font-fga-heading);
+  font-size: 11px;
+  cursor: pointer;
 }
 
-.tour-row p {
-  margin-bottom: 0;
-  color: var(--color-muted);
+.archive-view-toggle-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
 }
 
+.archive-view-toggle-track {
+  width: 34px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--color-line);
+  background: rgba(21, 23, 25, 0.9);
+  padding: 2px;
+  border-radius: 999px;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.archive-view-toggle-thumb {
+  width: 12px;
+  height: 12px;
+  background: var(--color-muted);
+  border-radius: 50%;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.archive-view-toggle-input:checked + .archive-view-toggle-track {
+  border-color: var(--color-blue);
+  background: rgba(60, 111, 159, 0.52);
+}
+
+.archive-view-toggle-input:checked + .archive-view-toggle-track .archive-view-toggle-thumb {
+  transform: translateX(16px);
+  background: var(--color-text);
+}
+
+.archive-view-toggle-input:focus-visible + .archive-view-toggle-track {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 2px;
+}
 .modal-backdrop {
   position: fixed;
   inset: 0;
@@ -577,38 +511,11 @@ h3 {
 }
 
 @media (max-width: 980px) {
-  .app-shell {
-    grid-template-columns: 1fr;
-  }
-
-  .side-rail {
-    border-right: 0;
-    border-bottom: 2px solid var(--color-line);
-  }
-
-  .nav-stack {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .table-row {
     grid-template-columns: 1fr 1fr;
   }
 
-  .campaign-detail-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .create-campaign-form,
-  .player-form {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .player-row {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .table-head,
-  .player-table-head {
+  .table-head {
     display: none;
   }
 }
@@ -618,7 +525,14 @@ h3 {
     padding: 16px;
   }
 
-  .command-header,
+  .welcome-main-row {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-main-row .primary-action {
+    justify-self: stretch;
+  }
+
   .panel-heading {
     align-items: stretch;
     flex-direction: column;
@@ -632,15 +546,10 @@ h3 {
     flex: 1;
   }
 
-  .nav-stack,
   .create-campaign-form,
   .create-campaign-form-row,
-  .player-form,
   .table-row,
-  .player-row,
-  .campaign-detail-grid,
-  .help-modal-list-item,
-  .tour-row {
+  .help-modal-list-item {
     grid-template-columns: 1fr;
   }
 }
